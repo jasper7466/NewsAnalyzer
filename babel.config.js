@@ -5,6 +5,7 @@ const presets = [
 			targets:
 			{
 				chrome: "80",
+				chrome: "70",
 				chromeandroid: "78",
 				firefox: "71",
 				safari: "13",
