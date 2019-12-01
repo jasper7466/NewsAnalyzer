@@ -46,7 +46,6 @@ module.exports = {
 				test: /\.css$/,
 				use:
 				[
-					//(isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
 					MiniCssExtractPlugin.loader,
 					'css-loader', 
 					'postcss-loader'
@@ -65,7 +64,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|ttf|woff|woff2)$/,
-				loader: 'file-loader?name=./vendor/[name].[ext]'
+				loader: 'file-loader?name=./fonts/[name].[ext]'
 			}
 		]
 	},
@@ -79,14 +78,7 @@ module.exports = {
 			cssProcessorPluginOptions: {preset: ['default']},
 			canPrint: true
 		}),
-		new HtmlWebpackPlugin(
-		{
-			inject: false,
-			template: './src/pages/index.html',
-			filename: 'index.html'
-		}),
 		new WebpackMd5Hash()
-		//new webpack.DefinePlugin({'NODE_ENV': JSON.stringify(process.env.NODE_ENV)})
 	].concat(htmlPlugins)
 };
 
