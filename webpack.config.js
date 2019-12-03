@@ -6,7 +6,7 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const fs = require('fs');
 
-//const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development';
 
 // Скрипт поиска всех html-файлов по указанному адресу и создания для них своих версий HtmlWebpackPlugin'а
 function generateHtmlPlugins(templateDir) {
@@ -78,7 +78,8 @@ module.exports = {
 			cssProcessorPluginOptions: {preset: ['default']},
 			canPrint: true
 		}),
-		new WebpackMd5Hash()
+		new WebpackMd5Hash(),
+		new webpack.DefinePlugin({'NODE_ENV': JSON.stringify(process.env.NODE_ENV)})
 	].concat(htmlPlugins)
 };
 
