@@ -20,3 +20,4 @@ Desktop.ini
 *.idea
 *.sublime
 *.vscode
+.editorconfig
