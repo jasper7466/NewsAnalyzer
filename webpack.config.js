@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const isDev = process.env.NODE_ENV === 'development';
 
-// Скрипт поиска всех html-файлов по указанному адресу и создания для них своих версий HtmlWebpackPlugin'а
+// Скрипт поиска всех html-файлов по указанному адресу и создания для них своих экземпляров HtmlWebpackPlugin'а
 function generateHtmlPlugins(templateDir) {
 	const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
 	return templateFiles.map(item => {
@@ -19,23 +19,37 @@ function generateHtmlPlugins(templateDir) {
 		filename: `${name}.html`,
 		template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
 		inject: false,
-	  })
-	})
+	  });
+	});
+}
+
+// Аналогичный скрипт, но уже для создания массива точек входа для js-файлов страниц
+function generateJsEntryPoints(templateDir) {
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  const entries = new Object;
+	templateFiles.map(item => {
+	  const parts = item.split('.');
+	  const name = parts[0];
+    const extension = parts[1];
+    entries[name] = path.resolve(__dirname, `${templateDir}/${name}.${extension}`);
+  });
+  return entries;
 }
 
 const htmlPlugins = generateHtmlPlugins('./src/pages');
+const jsEntryPoints = generateJsEntryPoints('./src/scripts');
 
 module.exports = {
 	devServer: { contentBase: path.join(__dirname, 'dist')},
-	entry: { main: './src/scripts/index.js' },
+  entry: jsEntryPoints,
 	output:
 	{
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].[chunkhash].js'
+		filename: './scripts/[name].[chunkhash].js'
 	},
 	module:
 	{
-		rules: 
+		rules:
 		[
 			{
 				test: /\.js$/,
@@ -46,9 +60,12 @@ module.exports = {
 				test: /\.css$/,
 				use:
 				[
-					MiniCssExtractPlugin.loader,
-					'css-loader', 
-					'postcss-loader'
+          {
+					  loader: MiniCssExtractPlugin.loader,
+            options: {publicPath: '../'}
+          },
+          'css-loader',
+          'postcss-loader'
 				]
 			},
 			{
@@ -58,7 +75,7 @@ module.exports = {
 					'file-loader?name=./images/[name].[ext]',
 					{
 						loader: 'image-webpack-loader',
-						options: {}
+            options: {}
 					}
 				]
 			},
@@ -69,8 +86,8 @@ module.exports = {
 		]
 	},
 	plugins:
-	[ 
-		new MiniCssExtractPlugin({filename: 'style.[contenthash].css'}),
+	[
+		new MiniCssExtractPlugin({filename: './styles/style.[contenthash].css'}),
 		new OptimizeCssAssetsPlugin(
 		{
 			assetNameRegExp: /\.css$/g,

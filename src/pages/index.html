@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Main</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css%>">
 </head>
 <body class="page">
   <!-- ---------- HEADER ---------- -->
@@ -18,7 +18,7 @@
           <a class="nav__list-link custom-cursor" href="#">Главная</a>
         </li>
         <li class="nav__list-item">
-          <a class="nav__list-link custom-cursor" href="#">О проекте</a>
+          <a class="nav__list-link custom-cursor" href="./about.html">О проекте</a>
         </li>
       </ul>
     </nav>
@@ -133,6 +133,6 @@
       </li>
     </ul>
   </footer>
-  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <script src="<%= htmlWebpackPlugin.files.chunks.index.entry%>"></script>
 </body>
 </html>
