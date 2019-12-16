@@ -1,0 +1,15 @@
+.results__button {
+  width: 288px;
+  height: 64px;
+  margin: 70px;
+  border-radius: 80px;
+  border-style: none;
+  background: #FFF;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #1A1B22;
+}

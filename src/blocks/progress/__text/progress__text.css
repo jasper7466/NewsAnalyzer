@@ -1,0 +1,11 @@
+.progress__text {
+  margin: 0;
+  max-width: 340px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+}

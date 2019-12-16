@@ -1,0 +1,6 @@
+.nav__list-item {
+  display: flex;
+  align-items: center;
+  margin-left: 35px;
+  color: #b6bcbf;
+}

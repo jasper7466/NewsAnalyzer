@@ -1,0 +1,8 @@
+.results__head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 4.9% 0 3.85% 0;
+}

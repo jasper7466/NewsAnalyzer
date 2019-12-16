@@ -1,0 +1,23 @@
+@import url(./__site-caption-link/nav__site-caption-link.css);
+@import url(./__list/nav__list.css);
+@import url(./__list-item/nav__list-item.css);
+@import url(./__list-item/nav__list-item_underline.css);
+@import url(./__list-item/nav__list-item_black.css);
+@import url(./__list-link/nav__list-link.css);
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  padding: 0 7%;
+  box-sizing: border-box;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}

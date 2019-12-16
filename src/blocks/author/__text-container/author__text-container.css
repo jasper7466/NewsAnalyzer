@@ -1,0 +1,5 @@
+.author__text-container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}

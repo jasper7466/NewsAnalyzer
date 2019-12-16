@@ -1,0 +1,14 @@
+@import url(./__form/search__form.css);
+@import url(./__input/search__input.css);
+@import url(./__submit/search__submit.css);
+@import url(./__subtitle/search__subtitle.css);
+@import url(./__title/search__title.css);
+
+.search {
+  display: flex;
+  flex-direction: column;
+  max-width: 610px;
+  justify-items: flex-start;
+  margin-top: 5.5%;
+  padding: 0;
+}

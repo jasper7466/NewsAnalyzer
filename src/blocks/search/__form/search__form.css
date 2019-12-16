@@ -1,0 +1,8 @@
+.search__form {
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 0;
+  background-color: currentColor;
+  border-radius: 100px;
+  color: white;
+}

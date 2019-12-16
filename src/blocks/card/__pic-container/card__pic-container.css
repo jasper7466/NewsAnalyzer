@@ -1,0 +1,12 @@
+/* Дополнительная обёртка. Сделана для реализации возможности установки высоты изображения пропорционально ширине карточки */
+.card__pic-container {
+  position: relative;
+  width: 100%;
+  /* "Лайфхак" через padding */
+  padding-top: 68%;
+  padding-bottom: 0;
+  /* Наследуем от карточки закругления верхних углов, чтобы его иницализация была только в одном месте - в стилях самой карточки*/
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  overflow: hidden;
+}

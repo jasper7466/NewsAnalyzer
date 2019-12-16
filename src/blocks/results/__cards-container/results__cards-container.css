@@ -1,0 +1,7 @@
+.results__cards-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+  gap: 1.11%;
+  width: 100%;
+}

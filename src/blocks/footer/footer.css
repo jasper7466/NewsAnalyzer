@@ -1,0 +1,15 @@
+@import url(./__copyright/footer__copyright.css);
+@import url(./__social-icon/footer__social-icon.css);
+@import url(./__social-list-item/footer__social-list-item.css);
+@import url(./__social-list/footer__social-list.css);
+@import url(./__nav/footer__nav.css);
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 105px;
+  box-sizing: border-box;
+}

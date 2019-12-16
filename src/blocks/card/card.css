@@ -1,0 +1,17 @@
+@import url(./__data-stamp/card__data-stamp.css);
+@import url(./__description/card__description.css);
+@import url(./__info/card__info.css);
+@import url(./__pic-container/card__pic-container.css);
+@import url(./__pic/card__pic.css);
+@import url(./__source/card__source.css);
+@import url(./__title/card__title.css);
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 224px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: white;
+}
