@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "core-js": "^3.4.1"
+    "core-js": "^3.4.1",
+    "swiper": "^5.2.1"
   }
 }

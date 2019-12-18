@@ -6,6 +6,7 @@
 @import url(../blocks/author/author.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/common-styles/custom-cursor.css);
+@import url(../../node_modules/swiper/css/swiper.min.css);
 
 .message {
   display: flex;
@@ -137,3 +138,22 @@
   width: 120px;
   height: 120px;
 }
+
+.history__container {
+  width: 100%;
+  height: 300px;
+  outline: 1px solid red;
+}
+
+.history__slide {
+  outline: 3px solid red;
+  /* width: 40px; */
+}
+
+/* .history__button-prev {
+  height: 40px;
+  width: 40px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+} */
