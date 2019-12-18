@@ -14,10 +14,17 @@
   width: 100%;
   padding: 0 7%;
   box-sizing: border-box;
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+}
+
+.nav_white {
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.nav_black {
+  box-shadow: inset 0px -1px 0px #d1d2d6;
 }

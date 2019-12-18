@@ -5,11 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About</title>
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.about.css %>">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.about.css%>">
 </head>
-<body>
-    <p>Dummy for "About" page</p>
-    <a href="./index.html">Home</a>
-    <script src="<%= htmlWebpackPlugin.files.chunks.about.entry %>"></script>
+<body class="page">
+  <header class="header header_black header_slim">
+    <!-- ---------- HEADER/NAV ---------- -->
+    <nav class="nav nav_black">
+      <a class="nav__site-caption-link custom-cursor" href="./index.html">NewsAnalyzer</a>
+      <ul class="nav__list">
+        <li class="nav__list-item">
+          <a class="nav__list-link custom-cursor" href="./index.html">Главная</a>
+        </li>
+        <li class="nav__list-item nav__list-item_underline">
+          <a class="nav__list-link custom-cursor" href="./about.html">О проекте</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ---------- MAIN ---------- -->
+  <main class="main">
+    <!-- ---------- MAIN / MESSAGE ---------- -->
+    <section class="message">
+      <div class="message__holder">
+        <h1 class="message__title">Клиентам</h1>
+        <p class="message__text-content">
+          Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
+        </p>
+        <p class="message__text-content">
+          Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
+        </p>
+        <p class="message__text-content">
+          Карточки с новостями приходят с сервера и обрабатываются асинхронно. То есть сайт продолжает работать, пока от сервера приходит ответ. Это повышает удобство использования сервиса.
+        </p>
+        <p class="message__text-content">
+          При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
+        </p>
+        <p class="message__text-content">
+          Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
+        </p>
+      </div>
+    </section>
+    <!-- ---------- MAIN / TECH ---------- -->
+    <section class="tech">
+      <div class="tech__holder">
+        <h2 class="tech__title">Используемые технологии</h2>
+        <div class="tech__item-container">
+          <div class="tech__item">
+            <h3 class="tech__item-title">HTML</h3>
+            <img class="tech__item-pic" src="<%=require('../images/icon-html.svg')%>" alt="">
+          </div>
+          <div class="tech__item">
+            <h3 class="tech__item-title">CSS</h3>
+            <img class="tech__item-pic" src="<%=require('../images/icon-css.svg')%>" alt="">
+          </div>
+          <div class="tech__item">
+            <h3 class="tech__item-title">Java Script</h3>
+            <img class="tech__item-pic" src="<%=require('../images/icon-js.svg')%>" alt="">
+          </div>
+          <div class="tech__item">
+            <h3 class="tech__item-title">Webpack</h3>
+            <img class="tech__item-pic" src="<%=require('../images/icon-webpack.svg')%>" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ---------- MAIN / AUTHOR ---------- -->
+    <section class="author">
+      <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="">
+      <div class="author__text-container">
+        <h2 class="author__title">Об авторе</h2>
+        <p class="author__text-content">
+            Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+        </p>
+        <p class="author__text-content">
+            Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+        </p>
+      </div>
+
+    </section>
+  </main>
+  <!-- ---------- MAIN/ ---------- --><!-
+  - ---------- FOOTER ---------- -->
+  <footer class="footer">
+    <p class="footer__copyright">	&copy; 2019 Tim</p>
+    <nav class="nav footer__nav">
+      <ul class="nav__list">
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link" href="#">Главная</a>
+        </li>
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link" href="#">О проекте</a>
+        </li>
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link" href="#">Яндекс.Практикум</a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="footer__social-list">
+      <li class="footer__social-list-item">
+        <img class="footer__social-icon" src="<%=require('../images/icon-social-octocat.svg')%>" alt="">
+      </li>
+      <li class="footer__social-list-item">
+        <img class="footer__social-icon" src="<%=require('../images/icon-social-facebook.svg')%>" alt="">
+      </li>
+    </ul>
+  </footer>
+  <script src="<%= htmlWebpackPlugin.files.chunks.about.entry%>"></script>
 </body>
 </html>

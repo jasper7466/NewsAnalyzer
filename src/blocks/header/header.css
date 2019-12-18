@@ -1,6 +1,3 @@
-@import url(./_white/header_white.css);
-@import url(./_black/header_black.css);
-
 .header {
   display: flex;
   flex-direction: column;
@@ -10,4 +7,17 @@
   background-image: url(../../images/header-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.header_black {
+  color: black;
+}
+
+.header_white {
+  color: white;
+}
+
+.header_slim {
+  min-height: 0;
+  background-image: none;
 }
