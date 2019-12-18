@@ -142,14 +142,15 @@
 
 .history {
   width: 100%;
+  height: 288px;
   /* padding: 10% 10%; */
   /* padding-left: 10%; */
   outline: 5px solid greenyellow;
 }
 
 .history__container {
-  width: 100%;
-  height: 300px;
+  /* width: 100%; */
+  height: 100%;
   outline: 1px solid red;
 }
 
@@ -160,17 +161,26 @@
 
 .history__slide {
   outline: 2px solid fuchsia;
-  min-width: 264px;
-  max-width: 400px;
-  width: 100%;
-  height: 80%;
+  /* min-width: 400px; */
+  /* min-width: 400px; */
+  /* width: 400px; */
+  /* height: 100%; */
   border-radius: 16px;
-  background-color: brown;
+  background-color: lightpink;
 }
 
 /* Цвета буллитов "прибиты гвоздями" в исходниках, поэтому вручную подменяем цветовую схему для дочерних буллитов конкретного экземпляра свайпера*/
 .history__pagination > .swiper-pagination-bullet-active {
-  background-color: black;
+  background-color: #1a1b22;
+}
+
+.history__wrapper {
+  display: flex;
+}
+
+.history__wrapper > .swiper-slide-active {
+  align-self: center;
+  justify-self: center;
 }
 
 .history__nav-button {
@@ -199,9 +209,20 @@
 
 .commit-card {
   min-width: 264px;
-  max-width: 400px;
-  width: 100%;
-  height: 200px;
+  width: 400px;
+  /* width: 100%; */
+  height: 288px;
+  margin-right: 16px;
   border-radius: 16px;
-  background-color: brown;
+  background-color: lightgray;
+}
+
+/* .is-selected  .commit-card {
+  background-color: lightsalmon;
+} */
+
+
+
+.swiper-slide-next + .swiper-slide {
+  background-color: lightsalmon;
 }

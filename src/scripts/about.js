@@ -8,14 +8,14 @@ let flkty = new Flickity( '.main-carousel', {
 });
 
 var commitSwiper = new Swiper('.history__container', {
-  // Optional parameters
   direction: 'horizontal',
-  loop: false,
+  loop: true,
 
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
+    // clickable: true,
   },
 
   // Navigation arrows
@@ -23,15 +23,15 @@ var commitSwiper = new Swiper('.history__container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  speed: 400,
+  speed: 1000,
   spaceBetween: 16,
   setWrapperSize: true,
 
-  // slidesPerView: 4,
-  slidesPerGroup: 1,
+  slidesPerView: 4,
+  slidesPerGroup: 3,
   centeredSlides: true,
-  updateOnWindowResize: true,
   centeredSlidesBounds: true,
+  // updateOnWindowResize: true,
   centerInsufficientSlides: true,
 });
 
