@@ -1,13 +1,26 @@
 import '../styles/about.css';
-// import '../../node_modules/swiper/js/swiper.min.js';
+
 import Swiper from 'swiper';
 import Flickity from 'flickity';
+import Glide from '@glidejs/glide';
 
 let flkty = new Flickity( '.main-carousel', {
   // options
 });
 
-var commitSwiper = new Swiper('.history__container', {
+const glider = new Glide('.glide', {
+  // type: 'carousel',
+  startAt: 0,
+  perView: 3,
+})
+
+
+
+glider.enable()
+
+glider.mount();
+
+let commitSwiper = new Swiper('.history__container', {
   direction: 'horizontal',
   loop: true,
 

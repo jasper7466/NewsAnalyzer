@@ -8,6 +8,8 @@
 @import url(../blocks/common-styles/custom-cursor.css);
 @import url(../../node_modules/swiper/css/swiper.min.css);
 @import url(../../node_modules/flickity/css/flickity.css);
+@import url(../../node_modules/@glidejs/glide/dist/css/glide.core.min.css);
+@import url(../../node_modules/@glidejs/glide/dist/css/glide.theme.min.css);
 
 .message {
   display: flex;
@@ -141,6 +143,7 @@
 }
 
 .history {
+  margin-bottom: 50px;
   width: 100%;
   height: 288px;
   /* padding: 10% 10%; */
@@ -225,4 +228,18 @@
 
 .swiper-slide-next + .swiper-slide {
   background-color: lightsalmon;
+}
+
+.glide__slide {
+  margin: 0;
+  max-width: 400px;
+  /* width: 100%; */
+  height: 288px;
+  margin-right: 16px;
+  border-radius: 16px;
+  background-color: lightgray;
+}
+
+.glide__slides {
+  margin: 0;
 }
