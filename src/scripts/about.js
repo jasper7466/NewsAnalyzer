@@ -1,6 +1,11 @@
 import '../styles/about.css';
 // import '../../node_modules/swiper/js/swiper.min.js';
 import Swiper from 'swiper';
+import Flickity from 'flickity';
+
+let flkty = new Flickity( '.main-carousel', {
+  // options
+});
 
 var commitSwiper = new Swiper('.history__container', {
   // Optional parameters
@@ -23,11 +28,11 @@ var commitSwiper = new Swiper('.history__container', {
   setWrapperSize: true,
 
   // slidesPerView: 4,
-  // slidesPerGroup: 3,
+  slidesPerGroup: 1,
   centeredSlides: true,
   updateOnWindowResize: true,
   centeredSlidesBounds: true,
+  centerInsufficientSlides: true,
 });
 
-commitSwiper.slides
 commitSwiper.width = 50;
