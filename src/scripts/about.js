@@ -2,10 +2,10 @@ import '../styles/about.css';
 // import '../../node_modules/swiper/js/swiper.min.js';
 import Swiper from 'swiper';
 
-var mySwiper = new Swiper('.history__container', {
+var commitSwiper = new Swiper('.history__container', {
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
+  loop: false,
 
   // If we need pagination
   pagination: {
@@ -18,4 +18,16 @@ var mySwiper = new Swiper('.history__container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  speed: 400,
+  spaceBetween: 16,
+  setWrapperSize: true,
+
+  // slidesPerView: 4,
+  // slidesPerGroup: 3,
+  centeredSlides: true,
+  updateOnWindowResize: true,
+  centeredSlidesBounds: true,
 });
+
+commitSwiper.slides
+commitSwiper.width = 50;

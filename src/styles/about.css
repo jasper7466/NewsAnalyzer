@@ -26,7 +26,7 @@
 .message__holder {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   max-width: 1232px;
   width: 100%;
@@ -139,21 +139,59 @@
   height: 120px;
 }
 
+.history {
+  width: 100%;
+  /* padding: 10% 10%; */
+  /* padding-left: 10%; */
+  outline: 5px solid greenyellow;
+}
+
 .history__container {
   width: 100%;
   height: 300px;
   outline: 1px solid red;
 }
 
-.history__slide {
-  outline: 3px solid red;
-  /* width: 40px; */
+.history__wrapper {
+
 }
 
-/* .history__button-prev {
+
+.history__slide {
+  outline: 2px solid fuchsia;
+  min-width: 264px;
+  max-width: 400px;
+  width: 100%;
+  height: 80%;
+  border-radius: 16px;
+  background-color: brown;
+}
+
+/* Цвета буллитов "прибиты гвоздями" в исходниках, поэтому вручную подменяем цветовую схему для дочерних буллитов конкретного экземпляра свайпера*/
+.history__pagination > .swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+.history__nav-button {
   height: 40px;
   width: 40px;
-  color: white;
-  background-color: black;
   border-radius: 50%;
-} */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  background-color: black;
+}
+
+/* Отключаем наполнение кнопок навигации по умолчанию*/
+.history__nav-button::after {
+  content: '';
+}
+
+/* Кастомизируем кнопки своими иконками */
+.history__nav-button_prev {
+  background-image: url(../images/icon-left-arrow-white.svg);
+}
+
+.history__nav-button_next {
+  background-image: url(../images/icon-right-arrow-white.svg);
+}
