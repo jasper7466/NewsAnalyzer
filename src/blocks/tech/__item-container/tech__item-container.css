@@ -1,0 +1,18 @@
+.tech__item-container {
+  /* align-self: flex-end; */
+  flex-grow: 1;
+  display: grid;
+  justify-content: end;
+  /* align-content: stretch; */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  gap: 5%;
+  width: 50%;
+  /* display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; */
+  /* padding-right: 9%; */
+  /* width: auto; */
+  outline: 5px solid purple;
+}

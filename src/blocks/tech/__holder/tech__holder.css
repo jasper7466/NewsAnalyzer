@@ -1,0 +1,12 @@
+.tech__holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  padding-right: 112px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  max-width: 1232px;
+  width: 100%;
+  outline: 1px solid red;
+}

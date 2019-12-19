@@ -1,0 +1,10 @@
+.commit-card__personal-container {
+  display: grid;
+  justify-content: start;
+  grid-template-areas: "avatar name"
+                       "avatar mail";
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto-fit);
+  gap: 5%;
+  margin: 5% 0;
+}

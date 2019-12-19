@@ -1,0 +1,7 @@
+.tech__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  outline: 2px solid red;
+}
