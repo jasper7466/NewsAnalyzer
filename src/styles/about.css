@@ -121,10 +121,6 @@
   outline: 2px solid red;
 }
 
-/* .tech__item:last-of-type {
-  align-self: center;
-} */
-
 .tech__item-title {
   margin: 0;
   font-family: Roboto;
@@ -142,158 +138,78 @@
   height: 120px;
 }
 
-.history {
+.commits {
   margin-bottom: 50px;
   width: 100%;
-  height: 288px;
-  /* padding: 10% 10%; */
-  /* padding-left: 10%; */
-  /* outline: 5px solid greenyellow; */
 }
 
-.history__container {
-  /* width: 100%; */
-  height: 100%;
-  /* outline: 1px solid red; */
-}
-
-.history__wrapper {
-
-}
-
-
-.history__slide {
-  /* outline: 2px solid fuchsia; */
-  /* min-width: 400px; */
-  /* min-width: 400px; */
-  /* width: 400px; */
-  /* height: 100%; */
-  border-radius: 16px;
-  background-color: lightpink;
-}
-
-/* Цвета буллитов "прибиты гвоздями" в исходниках, поэтому вручную подменяем цветовую схему для дочерних буллитов конкретного экземпляра свайпера*/
-.history__pagination > .swiper-pagination-bullet-active {
-  background-color: #1a1b22;
-}
-
-.history__wrapper {
+/* Меняем цветовую схему и размеры кнопок навигации в конкретном экземпляре слайдера */
+.commits__carousel .flickity-prev-next-button {
   display: flex;
-}
-
-/* .history__wrapper > .swiper-slide-active {
-  align-self: center;
-  justify-self: center;
-} */
-
-.history__nav-button {
-  height: 40px;
+  justify-content: center;
   width: 40px;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 25%;
-  background-color: black;
+  height: 40px;
+  padding: unset;
+  z-index: 1;
+  background: #1a1b22;
 }
 
-/* Отключаем наполнение кнопок навигации по умолчанию*/
-.history__nav-button::after {
-  content: '';
+.commits__carousel .flickity-prev-next-button:hover {
+  background: white;
 }
 
-/* Кастомизируем кнопки своими иконками */
-.history__nav-button_prev {
-  background-image: url(../images/icon-left-arrow-white.svg);
+.commits__carousel .flickity-button-icon  {
+  position: relative;
+  left: unset;
+  top: unset;
+  width: 30%;
+  height: 30%;
 }
 
-.history__nav-button_next {
-  background-image: url(../images/icon-right-arrow-white.svg);
+.commits__carousel .flickity-prev-next-button .arrow {
+  fill: white;
 }
 
-
-
-/* .is-selected  .commit-card {
-  background-color: lightsalmon;
-} */
-
-
-
-
-
-.swiper-slide:not(.swiper-slide-next):not(.swiper-slide-prev):not(.swiper-slide-active) {
-  /* background-color: lightsalmon; */
-   background: linear-gradient(to right, lightpink, white 50%, lightpink);
-}
-
-
-
-
-
-.glide__slide {
-  margin: 0;
-  max-width: 400px;
-  /* width: 100%; */
-  height: 288px;
-  margin-right: 16px;
-  border-radius: 16px;
-  background-color: lightgray;
+.commits__carousel .flickity-prev-next-button:hover .arrow {
+  fill: #1a1b22;
 }
 
 .commit-card {
   min-width: 264px;
-  width: 400px;
-  /* width: 100%; */
+  max-width: 400px;
+  width: 100%;
   height: 288px;
   margin-right: 16px;
   border-radius: 16px;
   background-color: lightgray;
-  z-index: 3;
 }
 
-.commit-link {
+.commit-card__link {
   position: absolute;
   display: block;
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  border: 1px solid red;
   background-color: transparent;
-  z-index: 3;
 }
 
-.commit-card:not(.is-selected):not(.is-selected + .commit-card) {
-  background-color: lightsalmon;
-}
-
-.glide__slides {
-  margin: 0;
-}
-
-.carousel-holder {
+.commits__slider {
   position: relative;
+  max-height: 288px;
 }
 
-.shadower {
+.commits__shadower {
   position: absolute;
-  /* left: 0; */
-  /* top: 0; */
-  width: 100%;
+  width: 5%;
   height: 100%;
-  /* outline: 10px solid blue; */
-  background: linear-gradient(to right, white, transparent 5%, transparent 95%, white);
-  z-index: 2;
+  z-index: 1;
 }
 
-.flickity-button {
-  z-index: 3;
+.commits__shadower_left {
+  left: 0;
+  background: linear-gradient(to left, transparent, white);
 }
-
-.main-carousel {
-  /* z-index: 0; */
-}
-
-.flickity-viewport {
-  /* background-image: linear-gradient(to bottom, transparent 0%, greenyellow 100%); */
-  /* background: linear-gradient(to right, transparent, lightgray 50%, transparent); */
-  /* z-index: 15; */
+.commits__shadower_right {
+  right: 0;
+  background: linear-gradient(to right, transparent, white);
 }
