@@ -148,13 +148,13 @@
   height: 288px;
   /* padding: 10% 10%; */
   /* padding-left: 10%; */
-  outline: 5px solid greenyellow;
+  /* outline: 5px solid greenyellow; */
 }
 
 .history__container {
   /* width: 100%; */
   height: 100%;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .history__wrapper {
@@ -163,7 +163,7 @@
 
 
 .history__slide {
-  outline: 2px solid fuchsia;
+  /* outline: 2px solid fuchsia; */
   /* min-width: 400px; */
   /* min-width: 400px; */
   /* width: 400px; */
@@ -181,10 +181,10 @@
   display: flex;
 }
 
-.history__wrapper > .swiper-slide-active {
+/* .history__wrapper > .swiper-slide-active {
   align-self: center;
   justify-self: center;
-}
+} */
 
 .history__nav-button {
   height: 40px;
@@ -210,15 +210,7 @@
   background-image: url(../images/icon-right-arrow-white.svg);
 }
 
-.commit-card {
-  min-width: 264px;
-  width: 400px;
-  /* width: 100%; */
-  height: 288px;
-  margin-right: 16px;
-  border-radius: 16px;
-  background-color: lightgray;
-}
+
 
 /* .is-selected  .commit-card {
   background-color: lightsalmon;
@@ -226,9 +218,16 @@
 
 
 
-.swiper-slide-next + .swiper-slide {
-  background-color: lightsalmon;
+
+
+.swiper-slide:not(.swiper-slide-next):not(.swiper-slide-prev):not(.swiper-slide-active) {
+  /* background-color: lightsalmon; */
+   background: linear-gradient(to right, lightpink, white 50%, lightpink);
 }
+
+
+
+
 
 .glide__slide {
   margin: 0;
@@ -240,6 +239,61 @@
   background-color: lightgray;
 }
 
+.commit-card {
+  min-width: 264px;
+  width: 400px;
+  /* width: 100%; */
+  height: 288px;
+  margin-right: 16px;
+  border-radius: 16px;
+  background-color: lightgray;
+  z-index: 3;
+}
+
+.commit-link {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 1px solid red;
+  background-color: transparent;
+  z-index: 3;
+}
+
+.commit-card:not(.is-selected):not(.is-selected + .commit-card) {
+  background-color: lightsalmon;
+}
+
 .glide__slides {
   margin: 0;
+}
+
+.carousel-holder {
+  position: relative;
+}
+
+.shadower {
+  position: absolute;
+  /* left: 0; */
+  /* top: 0; */
+  width: 100%;
+  height: 100%;
+  /* outline: 10px solid blue; */
+  background: linear-gradient(to right, white, transparent 5%, transparent 95%, white);
+  z-index: 2;
+}
+
+.flickity-button {
+  z-index: 3;
+}
+
+.main-carousel {
+  /* z-index: 0; */
+}
+
+.flickity-viewport {
+  /* background-image: linear-gradient(to bottom, transparent 0%, greenyellow 100%); */
+  /* background: linear-gradient(to right, transparent, lightgray 50%, transparent); */
+  /* z-index: 15; */
 }
