@@ -1,0 +1,8 @@
+.week__grad {
+  width: 100%;
+  text-align: end;
+}
+.week__grad:first-of-type {
+  position: absolute;
+  width: 0px;
+}

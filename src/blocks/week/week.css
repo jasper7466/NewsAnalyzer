@@ -1,0 +1,22 @@
+@import url(./__bar/week__bar.css);
+@import url(./__column/week__column.css);
+@import url(./__day-caption/week__day-caption.css);
+@import url(./__grad/week__grad.css);
+@import url(./__graduation/week__graduation.css);
+@import url(./__header/week__header.css);
+@import url(./__holder/week__holder.css);
+@import url(./__mentions/week__mentions.css);
+@import url(./__month/week__month.css);
+@import url(./__row-content-container/week__row-content-container.css);
+@import url(./__row/week__row.css);
+@import url(./__title/week__title.css);
+
+.week {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  background-color: #F5F6F7;
+}

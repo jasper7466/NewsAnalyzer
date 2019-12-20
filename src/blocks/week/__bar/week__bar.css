@@ -1,0 +1,17 @@
+.week__bar {
+  display: flex;
+  align-items: center;
+  width: 25%;
+  height: 24px;
+  margin: 0;
+  padding-left: 0.5%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #2F71E5;
+}

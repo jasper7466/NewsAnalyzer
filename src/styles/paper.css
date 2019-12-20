@@ -4,4 +4,6 @@
 @import url(../blocks/nav/nav.css);
 @import url(../blocks/main/main.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/statistics/statistics.css);
+@import url(../blocks/week/week.css);
 @import url(../blocks/common-styles/custom-cursor.css);

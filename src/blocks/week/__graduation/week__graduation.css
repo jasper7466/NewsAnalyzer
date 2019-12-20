@@ -1,0 +1,5 @@
+.week__graduation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
