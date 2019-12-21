@@ -1,5 +1,7 @@
 .commits__button {
   display: none;
+  align-items: center;
+  justify-content: center;
   width: 90%;
   height: 64px;
   margin: 0;
@@ -36,6 +38,6 @@
 
 @media screen and (max-width: 425px) {
   .commits__button {
-    display: block;
+    display: flex;
   }
 }

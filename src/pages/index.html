@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css%>">
 </head>
 <body class="page">
-  <!-- ---------- HEADER ---------- -->
+  <!-- - - - - - HEADER - - - - - -->
   <header class="header header_white">
-    <!-- ---------- HEADER / NAV ---------- -->
+    <!-- - - - - - HEADER / NAV - - - - - -->
     <nav class="nav nav_white">
       <a class="nav__site-caption-link custom-cursor" href="./index.html">NewsAnalyzer</a>
       <ul class="nav__list">
@@ -22,30 +22,30 @@
         </li>
       </ul>
     </nav>
-    <!-- ---------- HEADER / SEARCH ---------- -->
+    <!-- - - - - - HEADER / SEARCH - - - - - -->
     <section class="search">
       <h1 class="search__title">Что в мире творится?</h1>
       <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
       <form class="search__form">
-          <input class="search__input" type="search" required name="" id="" placeholder="Введите тему новости">
+          <input class="search__input" type="search" required name="request-field" id="id1" placeholder="Введите тему новости">
           <input class="search__submit custom-cursor" type="submit" value="Искать">
       </form>
     </section>
   </header>
-  <!-- ---------- MAIN ---------- -->
+  <!-- - - - - - MAIN - - - - - -->
   <main class="main">
-    <!-- ---------- MAIN / IN-PROGRESS ---------- -->
+    <!-- - - - - - MAIN / IN-PROGRESS - - - - - -->
     <section class="progress">
       <i class="progress__pic progress__pic_preloader"></i>
-      <p class="progress__text">Идёт поиск новостей...</p>
+      <h2 class="progress__text">Идёт поиск новостей...</h2>
     </section>
-    <!-- ---------- MAIN / NO-RESULT ---------- -->
+    <!-- - - - - - MAIN / NO-RESULT - - - - - -->
     <section class="progress progress_no-result">
       <img class="progress__pic" src="<%=require('../images/not-found.svg')%>" alt="Баннер об отсутсвии материалов, соответствующих запросу">
-      <p class="progress__text progress__text_big" >Ничего не найдено</p>
+      <h2 class="progress__text progress__text_big" >Ничего не найдено</h2>
       <p class="progress__text">К сожалению по вашему запросу ничего не найдено.</p>
     </section>
-    <!-- ---------- MAIN / RESULTS ---------- -->
+    <!-- - - - - - MAIN / RESULTS - - - - - -->
     <section class="results">
       <div class="results__content-container">
         <div class="results__head-container">
@@ -93,7 +93,7 @@
         <button class="results__button custom-cursor">Показать ещё</button>
       </div>
     </section>
-    <!-- ---------- MAIN / AUTHOR ---------- -->
+    <!-- - - - - - MAIN / AUTHOR - - - - - -->
     <section class="author">
       <div class="author__holder">
         <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Фотография разработчика данного сайта">
@@ -109,7 +109,7 @@
       </div>
     </section>
   </main>
-  <!-- ---------- FOOTER ---------- -->
+  <!-- - - - - - FOOTER - - - - - -->
   <footer class="footer">
     <p class="footer__copyright">&copy; 2019 Tim</p>
     <nav class="nav footer__nav">
