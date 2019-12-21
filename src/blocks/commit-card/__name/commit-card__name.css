@@ -1,7 +1,7 @@
 .commit-card__name {
   grid-area: name;
   margin: 0;
-  font-family: Roboto Slab;
+  font-family: Roboto Slab, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;

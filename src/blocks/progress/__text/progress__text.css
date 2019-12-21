@@ -1,7 +1,7 @@
 .progress__text {
   margin: 0;
   max-width: 340px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
