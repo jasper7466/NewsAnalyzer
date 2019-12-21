@@ -7,3 +7,9 @@
   line-height: 24px;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 425px) {
+  .statistics__nav {
+    display: none;
+  }
+}

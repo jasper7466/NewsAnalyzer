@@ -8,3 +8,9 @@
   line-height: 30px;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 767px) {
+  .week__title {
+    font-size: 22px;
+  }
+}

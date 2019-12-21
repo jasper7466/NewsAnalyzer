@@ -21,3 +21,9 @@
   text-transform: uppercase;
   color: #B6BCBF;
 }
+
+@media screen and (max-width: 425px) {
+  .week__row {
+    margin-bottom: 21px;
+  }
+}
