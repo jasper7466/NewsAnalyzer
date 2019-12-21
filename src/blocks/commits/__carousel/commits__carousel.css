@@ -11,7 +11,7 @@
 }
 
 .commits__carousel .flickity-prev-next-button:hover {
-  background: white;
+  background: #fff;
 }
 
 .commits__carousel .flickity-button-icon  {
@@ -23,7 +23,7 @@
 }
 
 .commits__carousel .flickity-prev-next-button .arrow {
-  fill: white;
+  fill: #fff;
 }
 
 .commits__carousel .flickity-prev-next-button:hover .arrow {

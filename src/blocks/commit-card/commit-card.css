@@ -19,7 +19,7 @@
   padding: 1.7%;
   box-sizing: border-box;
   border-radius: 16px;
-  background-color: white;
+  background-color: #fff;
 }
 
 @media screen and (max-width: 768px) {

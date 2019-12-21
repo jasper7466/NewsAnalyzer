@@ -1,7 +1,7 @@
 .commits__button-link {
   display: none;
   text-decoration: none;
-  color: #1A1B22;
+  color: #1a1b22;
 }
 
 @media screen and (max-width: 425px) {
