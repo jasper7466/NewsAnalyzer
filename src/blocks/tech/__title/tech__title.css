@@ -1,10 +1,26 @@
 .tech__title {
   margin: 0;
+  margin-right: 10%;
+  margin-bottom: 5%;
   max-width: 344px;
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
   line-height: 46px;
-  outline: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+  .tech__title {
+    margin-right: 30%;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .tech__title {
+    margin: 0;
+    line-height: 40px;
+  }
 }

@@ -9,13 +9,29 @@
 .commit-card {
   display: flex;
   flex-direction: column;
-  min-width: 264px;
-  max-width: 400px;
-  width: 100%;
+  /* min-width: 264px; */
+  /* max-width: 400px; */
+  width: 400px;
+  /* max-height: 288px; */
+  /* min-height: 242px; */
   height: 288px;
   margin-right: 16px;
   padding: 1.7%;
   box-sizing: border-box;
   border-radius: 16px;
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .commit-card {
+    width: 336px;
+    height: 242px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .commit-card {
+    width: 288px;
+    height: 264px;
+  }
 }

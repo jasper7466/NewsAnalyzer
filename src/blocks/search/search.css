@@ -8,7 +8,26 @@
   display: flex;
   flex-direction: column;
   max-width: 610px;
+  margin: 5.5% 13% 0;
   justify-items: flex-start;
-  margin-top: 5.5%;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    margin: 3% 21% 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search {
+    margin-bottom: 5vw;
+  }
 }

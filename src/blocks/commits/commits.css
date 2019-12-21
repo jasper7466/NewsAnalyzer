@@ -5,6 +5,8 @@
 @import url(./__shadower/commits__shadower.css);
 @import url(./__slider/commits__slider.css);
 @import url(./__title/commits__title.css);
+@import url(./__button/commits__button.css);
+@import url(./__button-link/commits__button-link.css);
 
 .commits {
   margin-bottom: 50px;

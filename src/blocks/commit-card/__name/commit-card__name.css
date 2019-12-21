@@ -8,3 +8,9 @@
   line-height: 30px;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 768px) {
+  .commit-card__name {
+    font-size: 20px;
+  }
+}

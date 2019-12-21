@@ -1,7 +1,8 @@
 .search__input {
-  height: 64px;
+  max-height: 64px;
+  height: 8vw;
   width: 100%;
-  margin-left: 25px;
+  padding-left: 5%;
   border-radius: 100px;
   border-style: none;
   font-family: Roboto;
@@ -13,4 +14,10 @@
 
 .search__input:focus {
   outline: none;
+}
+
+@media screen and (max-width: 425px) {
+  .search__input {
+    height: 17vw;
+  }
 }

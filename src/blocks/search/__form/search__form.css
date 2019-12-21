@@ -1,8 +1,21 @@
 .search__form {
   display: flex;
   justify-content: space-between;
-  margin: 5% 0;
+  margin: 5% 0 13%;
   background-color: currentColor;
   border-radius: 100px;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .search__form {
+    margin: 0% 0 7%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search__form {
+    flex-direction: column;
+    background-color: transparent;
+  }
 }

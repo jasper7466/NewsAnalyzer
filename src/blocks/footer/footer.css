@@ -5,11 +5,19 @@
 @import url(./__nav/footer__nav.css);
 
 .footer {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 105px;
+  padding: 0 5%;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 }

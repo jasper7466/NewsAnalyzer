@@ -1,5 +1,14 @@
 .author__avatar {
   border-radius: 1000px;
-  height: 464px;
-  margin: 5px;
+  max-width: 464px;
+  min-width: 232px;
+  width: 30%;
+  margin: 0px;
+  margin-right: 2%;
+}
+
+@media screen and (max-width: 425px) {
+  .author__avatar {
+    width: 85%;
+  }
 }

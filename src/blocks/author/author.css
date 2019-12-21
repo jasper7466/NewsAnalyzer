@@ -2,14 +2,14 @@
 @import url(./__text-container/author__text-container.css);
 @import url(./__text-content/author__text-content.css);
 @import url(./__title/author__title.css);
+@import url(./__holder/author__holder.css);
+
 
 .author {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1232px;
   width: 100%;
-  padding: 80px 216px 80px 104px;
+  padding: 5% 0;
   box-sizing: border-box;
 }

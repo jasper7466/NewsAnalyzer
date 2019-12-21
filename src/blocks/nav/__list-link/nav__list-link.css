@@ -2,3 +2,9 @@
   text-decoration: inherit;
   color: inherit;
 }
+
+@media screen and (max-width: 425px) {
+  .nav__list-link {
+    font-size: 16px;
+  }
+}

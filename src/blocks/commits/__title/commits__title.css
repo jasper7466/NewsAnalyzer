@@ -6,3 +6,16 @@
   font-size: 40px;
   line-height: 46px;
 }
+
+@media screen and (max-width: 768px) {
+  .commits__title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .commits__title {
+    line-height: 40px;
+  }
+}

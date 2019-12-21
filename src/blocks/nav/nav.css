@@ -10,7 +10,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  max-height: 80px;
+  min-height: 56px;
+  height: 8.5vw;
   width: 100%;
   padding: 0 7%;
   box-sizing: border-box;
@@ -27,4 +29,12 @@
 
 .nav_black {
   box-shadow: inset 0px -1px 0px #d1d2d6;
+}
+
+@media screen and (max-width: 767px) {
+  .nav.footer__nav {
+    padding: 0;
+    max-height: unset;
+    height: unset;
+  }
 }

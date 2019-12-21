@@ -90,46 +90,51 @@
             </div>
           </div>
         </div>
-        <button class="results__button">Показать ещё</button>
+        <button class="results__button custom-cursor">Показать ещё</button>
       </div>
     </section>
     <!-- ---------- MAIN / AUTHOR ---------- -->
     <section class="author">
-      <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="">
-      <div class="author__text-container">
-        <h2 class="author__title">Об авторе</h2>
-        <p class="author__text-content">
-            Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
-        </p>
-        <p class="author__text-content">
-            Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
-        </p>
+      <div class="author__holder">
+        <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="">
+        <div class="author__text-container">
+          <h2 class="author__title">Об авторе</h2>
+          <p class="author__text-content">
+              Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+          <p class="author__text-content">
+              Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+          </p>
+        </div>
       </div>
-
     </section>
   </main>
   <!-- ---------- FOOTER ---------- -->
   <footer class="footer">
-    <p class="footer__copyright">	&copy; 2019 Tim</p>
+    <p class="footer__copyright">&copy; 2019 Tim</p>
     <nav class="nav footer__nav">
       <ul class="nav__list">
         <li class="nav__list-item nav__list-item_black">
-          <a class="nav__list-link" href="#">Главная</a>
+          <a class="nav__list-link custom-cursor" href="#">Главная</a>
         </li>
         <li class="nav__list-item nav__list-item_black">
-          <a class="nav__list-link" href="#">О проекте</a>
+          <a class="nav__list-link custom-cursor" href="#">О проекте</a>
         </li>
         <li class="nav__list-item nav__list-item_black">
-          <a class="nav__list-link" href="#">Яндекс.Практикум</a>
+          <a class="nav__list-link custom-cursor" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
         </li>
       </ul>
     </nav>
     <ul class="footer__social-list">
       <li class="footer__social-list-item">
-        <img class="footer__social-icon" src="<%=require('../images/icon-social-octocat.svg')%>" alt="">
+        <a class="footer__social-link custom-cursor" href="https://github.com/jasper7466">
+          <img class="footer__social-icon" src="<%=require('../images/icon-social-octocat.svg')%>" alt="GitHub">
+        </a>
       </li>
       <li class="footer__social-list-item">
-        <img class="footer__social-icon" src="<%=require('../images/icon-social-facebook.svg')%>" alt="">
+        <a class="footer__social-link custom-cursor" href="#">
+          <img class="footer__social-icon" src="<%=require('../images/icon-social-facebook.svg')%>" alt="Facebook">
+        </a>
       </li>
     </ul>
   </footer>

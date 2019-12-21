@@ -34,3 +34,9 @@
   width: 8px;
   height: 8px;
 }
+
+@media screen and (max-width: 768px) {
+  .commits__carousel .flickity-prev-next-button {
+    display: none;
+  }
+}

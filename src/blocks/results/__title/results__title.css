@@ -6,3 +6,16 @@
   font-size: 40px;
   line-height: 46px;
 }
+
+@media screen and (max-width: 768px) {
+  .results__title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .results__title {
+    margin-bottom: 5vw;
+  }
+}
