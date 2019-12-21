@@ -4,5 +4,5 @@
 }
 .week__grad:first-of-type {
   position: absolute;
-  width: 0px;
+  width: 0;
 }

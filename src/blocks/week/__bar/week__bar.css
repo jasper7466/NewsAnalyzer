@@ -4,13 +4,13 @@
   width: 25%;
   height: 24px;
   margin: 0;
-  padding-left: 0.5%;
+  padding-left: .5%;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 16px;
-  letter-spacing: 0.4px;
+  letter-spacing: .4px;
   text-transform: uppercase;
   color: #fffFFF;
   background-color: #2f71e5;
