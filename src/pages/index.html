@@ -100,7 +100,10 @@
     <!-- - - - - - MAIN / AUTHOR - - - - - -->
     <section class="author">
       <div class="author__holder">
-        <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Фотография разработчика данного сайта">
+        <picture class="author__picture">
+          <source srcset="<%=require('../images/avatar-min.jpg')%>" media="(max-width: 768px)">
+          <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Фотография разработчика данного сайта">
+        </picture>
         <div class="author__text-container">
           <h2 class="author__title">Об авторе</h2>
           <p class="author__text-content">
