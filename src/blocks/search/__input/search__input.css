@@ -10,6 +10,11 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
+  outline: none;
+}
+
+.search__input:hover {
+  outline: none;
 }
 
 .search__input:focus {

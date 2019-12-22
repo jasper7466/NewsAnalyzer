@@ -2,9 +2,27 @@
   display: flex;
   justify-content: space-between;
   margin: 5% 0 13%;
-  background-color: currentColor;
   border-radius: 100px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: currentColor;
   color: #fff;
+}
+
+.search__form:hover {
+  background-color: #e2f0ff;
+}
+
+.search__form:hover > .search__input {
+  background-color: #e2f0ff;
+}
+
+.search__form:focus-within {
+  background-color: #e2f0ff;
+}
+
+.search__form:focus-within > .search__input{
+  background-color: #e2f0ff;
 }
 
 @media screen and (max-width: 768px) {
@@ -17,5 +35,21 @@
   .search__form {
     flex-direction: column;
     background-color: transparent;
+  }
+
+  .search__form:hover {
+    background-color: transparent;
+  }
+
+  .search__form:hover > .search__input {
+    background-color: #fff;
+  }
+
+  .search__form:focus-within {
+    background-color: transparent;
+  }
+
+  .search__form:focus-within > .search__input{
+    background-color: #e2f0ff;
   }
 }
