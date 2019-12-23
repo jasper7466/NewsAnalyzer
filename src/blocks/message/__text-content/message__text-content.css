@@ -1,0 +1,9 @@
+.message__text-content {
+  margin: 0 0 2% 0;
+  max-width: 815px;
+  width: 100%;
+}
+
+.message__text-content:last-of-type {
+  margin: 0;
+}

@@ -1,0 +1,33 @@
+@import url(./__form/search__form.css);
+@import url(./__input/search__input.css);
+@import url(./__submit/search__submit.css);
+@import url(./__subtitle/search__subtitle.css);
+@import url(./__title/search__title.css);
+
+.search {
+  display: flex;
+  flex-direction: column;
+  max-width: 610px;
+  margin: 5.5% 13% 0;
+  justify-items: flex-start;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    margin: 3% 21% 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search {
+    margin-bottom: 5vw;
+  }
+}

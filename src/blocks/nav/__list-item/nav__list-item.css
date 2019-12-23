@@ -1,0 +1,24 @@
+.nav__list-item {
+  display: flex;
+  align-items: center;
+  margin-left: 35px;
+  color: #b6bcbf;
+}
+
+.nav__list-item:first-of-type {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .nav__list-item {
+    margin-left: 11px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer__nav .nav__list-item {
+    margin-left: 0;
+    margin-bottom: 10%;
+  }
+}
+

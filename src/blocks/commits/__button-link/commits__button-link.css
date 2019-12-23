@@ -1,0 +1,12 @@
+.commits__button-link {
+  display: none;
+  text-decoration: none;
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 425px) {
+  .commits__button-link {
+    display: block;
+    text-decoration: none;
+  }
+}

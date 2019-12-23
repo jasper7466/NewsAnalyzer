@@ -1,0 +1,18 @@
+@import url(./__current/statistics__current.css);
+@import url(./__holder/statistics__holder.css);
+@import url(./__link/statistics__link.css);
+@import url(./__nav/statistics__nav.css);
+@import url(./__number/statistics__number.css);
+@import url(./__numbers/statistics__numbers.css);
+@import url(./__prompt/statistics__prompt.css);
+@import url(./__separator/statistics__separator.css);
+
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  background-color: #fff;
+}

@@ -1,0 +1,28 @@
+.search__input {
+  max-height: 64px;
+  height: 8vw;
+  width: 100%;
+  padding-left: 5%;
+  border-radius: 100px;
+  border-style: none;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  outline: none;
+}
+
+.search__input:hover {
+  outline: none;
+}
+
+.search__input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 425px) {
+  .search__input {
+    height: 17vw;
+  }
+}

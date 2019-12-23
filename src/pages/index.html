@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Анализатор новостей">
+  <meta name="keywords" content="Новости, Анализ, Статистика, Анализатор новостей, NewsAnalyzer, News analyzer">
+  <meta name="author" content="Tim">
+  <title>Главная</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css%>">
+  <link rel="icon" href="<%=require('../images/favicon.png')%>" type="image/png">
+</head>
+<body class="page">
+  <!-- - - - - - HEADER - - - - - -->
+  <header class="header header_white">
+    <!-- - - - - - HEADER / NAV - - - - - -->
+    <nav class="nav nav_white">
+      <a class="nav__site-caption-link custom-cursor" href="./index.html">NewsAnalyzer</a>
+      <ul class="nav__list">
+        <li class="nav__list-item nav__list-item_underline">
+          <a class="nav__list-link custom-cursor" href="index.html">Главная</a>
+        </li>
+        <li class="nav__list-item">
+          <a class="nav__list-link custom-cursor" href="about.html">О проекте</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- - - - - - HEADER / SEARCH - - - - - -->
+    <section class="search">
+      <h1 class="search__title">Что в мире творится?</h1>
+      <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
+      <form class="search__form">
+          <input class="search__input" type="search" required name="request-field" id="id1" placeholder="Введите тему новости">
+          <input class="search__submit custom-cursor" type="submit" value="Искать">
+      </form>
+    </section>
+  </header>
+  <!-- - - - - - MAIN - - - - - -->
+  <main class="main">
+    <!-- - - - - - MAIN / IN-PROGRESS - - - - - -->
+    <section class="progress">
+      <i class="progress__pic progress__pic_preloader"></i>
+      <h2 class="progress__text">Идёт поиск новостей...</h2>
+    </section>
+    <!-- - - - - - MAIN / NO-RESULT - - - - - -->
+    <section class="progress progress_no-result">
+      <img class="progress__pic" src="<%=require('../images/not-found.svg')%>" alt="Баннер об отсутсвии материалов, соответствующих запросу">
+      <h2 class="progress__text progress__text_big" >Ничего не найдено</h2>
+      <p class="progress__text">К сожалению по вашему запросу ничего не найдено.</p>
+    </section>
+    <!-- - - - - - MAIN / RESULTS - - - - - -->
+    <section class="results">
+      <div class="results__content-container">
+        <div class="results__head-container">
+          <h2 class="results__title">Результаты поиска</h2>
+          <a class="results__analytics-link custom-cursor" href="paper.html">
+            Посмотреть аналитику
+            <img class="results__analytics-link-arrow-pic" src="<%=require('../images/icon-right-arrow.svg')%>" alt="Иконка левой стрелки">
+          </a>
+        </div>
+        <div class="results__cards-container">
+          <div class="card custom-cursor">
+            <div class="card__pic-container">
+              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
+            </div>
+            <div class="card__info">
+              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
+              <h3 class="card__title">Lorem ipsum dolor sit amet</h3>
+                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="card__source" >лента.ру</p>
+            </div>
+          </div>
+          <div class="card custom-cursor">
+            <div class="card__pic-container">
+              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
+            </div>
+            <div class="card__info">
+              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
+              <h3 class="card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h3>
+              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="card__source" >лента.ру</p>
+            </div>
+          </div>
+          <div class="card custom-cursor">
+            <div class="card__pic-container">
+              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
+            </div>
+            <div class="card__info">
+              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
+              <h3 class="card__title">Lorem ipsum dolor sit amet</h3>
+              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="card__source" >лента.ру</p>
+            </div>
+          </div>
+        </div>
+        <button class="results__button custom-cursor">Показать ещё</button>
+      </div>
+    </section>
+    <!-- - - - - - MAIN / AUTHOR - - - - - -->
+    <section class="author">
+      <div class="author__holder">
+        <picture class="author__picture">
+          <source srcset="<%=require('../images/avatar-min.jpg')%>" media="(max-width: 768px)">
+          <img class="author__avatar" src="<%=require('../images/avatar.jpg')%>" alt="Фотография разработчика данного сайта">
+        </picture>
+        <div class="author__text-container">
+          <h2 class="author__title">Об авторе</h2>
+          <p class="author__text-content">
+              Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+          <p class="author__text-content">
+              Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- - - - - - FOOTER - - - - - -->
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2019 Tim</p>
+    <nav class="nav footer__nav">
+      <ul class="nav__list">
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link custom-cursor" href="index.html">Главная</a>
+        </li>
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link custom-cursor" href="about.html">О проекте</a>
+        </li>
+        <li class="nav__list-item nav__list-item_black">
+          <a class="nav__list-link custom-cursor" href="https://praktikum.yandex.ru/" target="_blank">Яндекс.Практикум</a>
+        </li>
+      </ul>
+    </nav>
+    <ul class="footer__social-list">
+      <li class="footer__social-list-item">
+        <a class="footer__social-link custom-cursor" href="https://github.com/jasper7466" target="_blank">
+          <img class="footer__social-icon" src="<%=require('../images/icon-social-octocat.svg')%>" alt="GitHub">
+        </a>
+      </li>
+      <li class="footer__social-list-item">
+        <a class="footer__social-link custom-cursor" href="https://www.facebook.com/" target="_blank">
+          <img class="footer__social-icon" src="<%=require('../images/icon-social-facebook.svg')%>" alt="Facebook">
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <script src="<%= htmlWebpackPlugin.files.chunks.index.entry%>"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.week__row {
+  display: flex;
+  width: 100%;
+  margin: 1% 0 3.54% 0;
+}
+
+.week__row:nth-last-of-type(2) {
+  margin-bottom: 0;
+}
+
+.week__row_ruler {
+  margin: 0;
+  margin: 1% 0 .2% 0;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
+}
+
+@media screen and (max-width: 425px) {
+  .week__row {
+    margin-bottom: 21px;
+  }
+}

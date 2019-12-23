@@ -1,0 +1,16 @@
+@import url(./__carousel/commits__carousel.css);
+@import url(./__head-container/commits__head-container.css);
+@import url(./__link-arrow-pic/commits__link-arrow-pic.css);
+@import url(./__link/commits__link.css);
+@import url(./__shadower/commits__shadower.css);
+@import url(./__slider/commits__slider.css);
+@import url(./__title/commits__title.css);
+@import url(./__button/commits__button.css);
+@import url(./__button-link/commits__button-link.css);
+
+.commits {
+  margin-bottom: 50px;
+  width: 100%;
+  padding-bottom: 6%;
+  background-color: #f5f6f7;
+}

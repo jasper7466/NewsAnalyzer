@@ -1,0 +1,42 @@
+/* Меняем цветовую схему и размеры кнопок навигации в конкретном экземпляре слайдера */
+.commits__carousel .flickity-prev-next-button {
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 1%;
+  padding: unset;
+  z-index: 1;
+  background: #1a1b22;
+}
+
+.commits__carousel .flickity-prev-next-button:hover {
+  background: #fff;
+}
+
+.commits__carousel .flickity-button-icon  {
+  position: relative;
+  left: unset;
+  top: unset;
+  width: 30%;
+  height: 30%;
+}
+
+.commits__carousel .flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.commits__carousel .flickity-prev-next-button:hover .arrow {
+  fill: #1a1b22;
+}
+
+.commits__carousel .flickity-page-dots .dot {
+  width: 8px;
+  height: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .commits__carousel .flickity-prev-next-button {
+    display: none;
+  }
+}

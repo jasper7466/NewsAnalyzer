@@ -1,0 +1,10 @@
+.commit-card__mail {
+  grid-area: mail;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1a1b22;
+}

@@ -1,0 +1,21 @@
+.message__title {
+  margin: 0 0 2% 0;
+  font-family: Roboto Slab, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+@media screen and (max-width: 768px) {
+  .message__title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .message__title {
+    line-height: 40px;
+  }
+}

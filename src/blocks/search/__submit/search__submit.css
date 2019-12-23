@@ -1,0 +1,38 @@
+.search__submit {
+  max-width: 168px;
+  width: 35vw;
+  border-radius: 100px;
+  border-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #2f71e5;
+  box-shadow: 0 5px 15px rgba(14, 26, 57, .2);
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.search__submit:focus {
+  outline: none;
+}
+
+.search__submit:hover {
+  background-color: #347eff;
+}
+
+.search__submit:active {
+  background-color: #2a65cc;
+}
+
+@media screen and (max-width: 425px) {
+  .search__submit {
+    margin-top: 10px;
+    max-width: unset;
+    height: 17vw;
+    width: 100%;
+  }
+}

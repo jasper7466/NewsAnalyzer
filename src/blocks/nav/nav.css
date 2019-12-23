@@ -1,0 +1,40 @@
+@import url(./__site-caption-link/nav__site-caption-link.css);
+@import url(./__list/nav__list.css);
+@import url(./__list-item/nav__list-item.css);
+@import url(./__list-item/nav__list-item_underline.css);
+@import url(./__list-item/nav__list-item_black.css);
+@import url(./__list-link/nav__list-link.css);
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 80px;
+  min-height: 56px;
+  height: 8.5vw;
+  width: 100%;
+  padding: 0 7%;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.nav_white {
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .2);
+}
+
+.nav_black {
+  box-shadow: inset 0 -1px 0 #d1d2d6;
+}
+
+@media screen and (max-width: 767px) {
+  .nav.footer__nav {
+    padding: 0;
+    max-height: unset;
+    height: unset;
+  }
+}

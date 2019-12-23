@@ -1,0 +1,15 @@
+.results__head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 4.9% 0 3.85% 0;
+}
+
+@media screen and (max-width: 425px) {
+  .results__head-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

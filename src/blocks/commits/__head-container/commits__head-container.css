@@ -1,0 +1,9 @@
+.commits__head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 7.22%;
+  box-sizing: border-box;
+  padding: 4.9% 0 3.85% 0;
+}

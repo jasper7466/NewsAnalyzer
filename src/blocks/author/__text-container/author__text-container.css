@@ -1,0 +1,9 @@
+.author__text-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  min-width: 288px;
+  width: 60vw;
+  margin: 0;
+  padding: 5% 0;
+}

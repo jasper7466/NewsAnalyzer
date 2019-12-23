@@ -1,0 +1,16 @@
+.week__title {
+  margin: 0;
+  margin-bottom: 4%;
+  font-family: Roboto Slab, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 767px) {
+  .week__title {
+    font-size: 22px;
+  }
+}

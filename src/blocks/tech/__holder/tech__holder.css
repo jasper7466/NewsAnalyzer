@@ -1,0 +1,10 @@
+.tech__holder {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: flex-start;
+  max-width: 1232px;
+  width: 100%;
+}

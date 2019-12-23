@@ -1,0 +1,22 @@
+.search__title {
+  margin: 0;
+  max-width: 60%;
+  font-family: Roboto Slab, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 64px;
+}
+
+@media screen and (max-width: 768px) {
+  .search__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search__title {
+    max-width: unset;
+  }
+}

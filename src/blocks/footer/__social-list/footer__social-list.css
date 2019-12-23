@@ -1,0 +1,16 @@
+.footer__social-list {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+  margin: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 767px) {
+  .footer__social-list {
+    position: absolute;
+    right: 5%;
+    padding: 0;
+  }
+}

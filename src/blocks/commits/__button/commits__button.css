@@ -1,0 +1,43 @@
+.commits__button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 64px;
+  margin: 0;
+  margin: 10% 5%;
+  border-radius: 80px;
+  border: 1px solid #1a1b22;
+  background-color: transparent;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: #1a1b22;
+}
+
+.commits__button:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.commits__button:hover {
+  background-color: #2f71e5;
+  text-decoration: none;
+  color: #fff;
+}
+
+.commits__button:active {
+  background-color: #2a65cc;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media screen and (max-width: 425px) {
+  .commits__button {
+    display: flex;
+  }
+}

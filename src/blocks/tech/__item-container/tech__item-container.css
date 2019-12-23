@@ -1,0 +1,22 @@
+.tech__item-container {
+  flex-grow: 1;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
+  gap: 5%;
+  min-width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+  .tech__item-container {
+    min-width: 80vw;
+    gap: 1%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .tech__item-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}

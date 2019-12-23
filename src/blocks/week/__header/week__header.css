@@ -1,0 +1,17 @@
+.week__header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 40px;
+  max-height: 44px;
+  height: 6.5vw;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
+  border-bottom: 2px solid #1a1b22;
+}

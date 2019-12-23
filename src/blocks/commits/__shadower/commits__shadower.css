@@ -1,0 +1,15 @@
+.commits__shadower {
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  z-index: 1;
+}
+
+.commits__shadower_left {
+  left: 0;
+  background: linear-gradient(to left, transparent, #f5f6f7);
+}
+.commits__shadower_right {
+  right: 0;
+  background: linear-gradient(to right, transparent, #f5f6f7);
+}

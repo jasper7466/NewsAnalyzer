@@ -1,0 +1,18 @@
+.commits__link {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 425px) {
+  .commits__link {
+    display: none;
+  }
+}

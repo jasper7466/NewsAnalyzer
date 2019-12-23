@@ -1,0 +1,19 @@
+@import url(./__holder/tech__holder.css);
+@import url(./__item-container/tech__item-container.css);
+@import url(./__item-pic/tech__item-pic.css);
+@import url(./__item-title/tech__item-title.css);
+@import url(./__item/tech__item.css);
+@import url(./__title/tech__title.css);
+
+.tech {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 334px;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  color: #1a1b22;
+  background: #f5f6f7;
+}

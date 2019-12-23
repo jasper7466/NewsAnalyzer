@@ -1,0 +1,15 @@
+.statistics__nav {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+}
+
+@media screen and (max-width: 425px) {
+  .statistics__nav {
+    display: none;
+  }
+}

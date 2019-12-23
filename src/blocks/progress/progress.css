@@ -1,0 +1,15 @@
+@import url(./__pic/progress__pic.css);
+@import url(./__pic/progress__pic_preloader.css);
+@import url(./__text/progress__text.css);
+@import url(./__text/progress__text_big.css);
+@import url(./_no-result/progress_no-result.css);
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 282px;
+  width: 100%;
+  background-color: #f5f6f7;
+}
