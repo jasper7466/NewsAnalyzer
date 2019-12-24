@@ -36,10 +36,10 @@ export class NewsApi
         return fetch(`${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`)
             .then((res) => {
                 if (res.ok) return res.json();
-                return Promise.reject(`Error: ${res.status}`);
+                return Promise.reject(`NewsApi Error: ${res.status}`);
             })
             .catch((err) => {
-                console.log('Request failed: ', err);
+                console.log('NewsApi Request failed: ', err);
                 return Promise.reject(err);
             });
     }
