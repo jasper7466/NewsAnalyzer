@@ -1,0 +1,18 @@
+@import url(./__data-stamp/news-card__data-stamp.css);
+@import url(./__description/news-card__description.css);
+@import url(./__info/news-card__info.css);
+@import url(./__pic-container/news-card__pic-container.css);
+@import url(./__pic/news-card__pic.css);
+@import url(./__source/news-card__source.css);
+@import url(./__title/news-card__title.css);
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 224px;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #fff;
+  cursor: url(../../images/cur-lapka.png), auto;
+}
