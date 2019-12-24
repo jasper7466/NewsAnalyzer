@@ -18,16 +18,20 @@ export class NewsApi
     {
         // Проверка на "перехлёст" дат
         if (this._from > this._to)
-            return(Promise.reject(new Error('NewsApi Error: date "to" should be greater than date "from". Please check instance init')));
+            return(Promise.reject(new Error('NewsApi Error: date "to" should be greater than date "from". Please check instance init.')));
+        // Проверка на пустой запрос
+        if (query === '')
+            return(Promise.reject(new Error('NewsApi Error: query should not be empty.')));
 
+        // Вычисляем дату "от" и парсим в удобоваримый для сервиса формат
         let date = new Date();
         date.setDate(date.getDate() + this._from);
         const parsedFrom = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+
+        // Аналогично для даты "до"
         date = new Date();
         date.setDate(date.getDate() + this._to);
         const parsedTo = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-
-        console.log(`${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`);
 
         return fetch(`${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`)
             .then((res) => {
