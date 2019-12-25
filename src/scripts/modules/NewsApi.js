@@ -4,7 +4,7 @@
 export class NewsApi
 {
     // Конструктор.
-    constructor(newsApikey, newsType, newsFrom, newsTo, newsMaxCount)
+    constructor(newsApikey, newsType, newsFrom, newsTo, newsMaxCount)//, onRequest = undefined, onResponse = undefined, onEmpty = undefined, onError = undefined)
     {
         this._key = newsApikey;     // Ключ для доступа к сервису
         this._type = newsType;      // Тип поиска
@@ -12,6 +12,17 @@ export class NewsApi
         this._to = newsTo;          // Конечная дата поиска (дней до текущей)
         this._count = newsMaxCount; // Размер поиска (кол-во записей)
         this._URL = 'https://newsapi.org/v2/';    // Базовая часть адреса для запросов
+        // this._onRequest = onRequest;
+        // this._onResponse = onResponse;
+        // this._onEmpty = onEmpty;
+        // this._onError = onError;
+    }
+
+    // Приватный метод для проверки и вызова опциональных функций
+    _runFunc(func, ...rest)
+    {
+        if(func != undefined)
+            func(rest);
     }
 
     getNews(query)
@@ -32,10 +43,24 @@ export class NewsApi
         date = new Date();
         date.setDate(date.getDate() + this._to);
         const parsedTo = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+        
+        // if(this._onRequest != undefined)
+        //     this._onRequest();
 
         return fetch(`${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`)
             .then((res) => {
-                if (res.ok) return res.json();
+                if (res.ok)
+                {
+                    // if(this._onResponse != undefined)
+                    //     this._onResponse();
+                    // if(res.totalResults === 0)
+                    // {
+                    //     if(this._onEmpty != undefined)
+                    //         this._onEmpty();
+                    // }
+                    // console.log(res);
+                    return res.json();
+                }
                 return Promise.reject(`NewsApi Error: ${res.status}`);
             })
             .catch((err) => {
