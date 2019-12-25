@@ -30,5 +30,4 @@ export class Progress
         this._wait.classList.add('progress_hide');
         this._empty.classList.add('progress_hide');
     }
-
 }

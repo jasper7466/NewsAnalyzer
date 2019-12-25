@@ -4,6 +4,7 @@ import '../styles/index.css';
 // Импортируем необходимые модули из блоков
 import { NewsCard } from '../blocks/news-card/NewsCard';
 import { Progress } from '../blocks/progress/Progress';
+import { Results } from '../blocks/results/Results';
 import { SearchForm } from '../blocks/search/SearchForm';
 
 // Импортируем модули общего назначения
@@ -11,11 +12,12 @@ import { NewsApi } from './modules/NewsApi';
 import { AnyContentHolder } from './modules/AnyContentHolder';
 
 // Получаем ссылки на необходимые узлы структуры документа
-const cardsContainer = document.querySelector('.results__cards-container');     // Контейнер для новостных карточек
 const searchForm = document.querySelector('.search__form');                     // Форма с поисковой строкой
+const resultsSection = document.querySelector('.results');                      // Секция "Результаты поиска"
+const cardsContainer = document.querySelector('.results__cards-container');     // Контейнер для новостных карточек
+const buttonShowMore = document.querySelector('.results__button');              // Кнопка "Показать ещё"
 const bannerWait = document.querySelector('.progress_wait');                    // Баннер "Идёт поиск"
 const bannerNothing = document.querySelector('.progress_no-result');            // Баннер "Ничего не найдено"
-const buttonShowMore = document.querySelector('.results__button');              // Кнопка "Показать ещё"
 
 // Задаём конфигурацию поискового движка
 const newsApikey = 'd5080e38d27a400eb92d036d47715e50';  // Ключ для доступа к сервису
@@ -34,16 +36,26 @@ const newsApi = new NewsApi(newsApikey, newsType, newsFrom, newsTo, newsMaxCount
 // Создаём экземпляр класса для работы c баннерами статуса
 const progress = new Progress(bannerWait, bannerNothing);
 
+// Создаём экземпляр класса для работы c баннерами статуса
+const results = new Results(resultsSection, buttonShowMore);
+
 // Функция обработки ввода
 function dataHandler(query)
 {
+    results.hide();                         // Прячем блок "Резльтаты" и показываем прелоудер
     progress.showWait();
-    newsApi.getNews(query)
+    newsApi.getNews(query)                  // Делаем запрос
         .then((data) => {
             console.log(data);
-            progress.hide();
+            progress.hide();                // Прячем прелоудер
             if(data.totalResults === 0)
-                progress.showEmpty();
+                progress.showEmpty();       // Показываем баннер "Ничего не найдено", если ничего не найдено)
+            else
+            {
+                if(data.totalResults > 3)   
+                    results.showButton();   // Если результатов много - показываем кнопку "Ещё"    
+                results.showSection();      // Показываем весь блок, если результаты есть
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -53,7 +65,7 @@ function dataHandler(query)
 // Создаём экземпляр класса для работы c формой ввода
 const form = new SearchForm(searchForm, (...rest) => dataHandler(...rest));
 
-newsHolder.addItem(1, 2, 3, 4, 5);
-newsHolder.addItem(1, 2, 3, 4, 5);
-newsHolder.addItem(1, 2, 3, 4, 5);
-newsHolder.addItem(1, 2, 3, 4, 5);
+// newsHolder.addItem(1, 2, 3, 4, 5);
+// newsHolder.addItem(1, 2, 3, 4, 5);
+// newsHolder.addItem(1, 2, 3, 4, 5);
+// newsHolder.addItem(1, 2, 3, 4, 5);
