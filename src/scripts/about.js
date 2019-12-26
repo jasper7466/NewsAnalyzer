@@ -7,7 +7,7 @@ import Flickity from 'flickity';
 // Импортируем необходимые модули из блоков
 import { CommitCard } from '../blocks/commit-card/CommitCard';
 
-// Импортируем модули общего назначения
+// Импортируем модули и утилиты общего назначения
 import { GitHubApi } from './modules/GitHubApi';
 import { AnyContentHolder } from './modules/AnyContentHolder';
 import { dateParser } from './utilities/DateParser';
@@ -39,8 +39,7 @@ function renderPage(max_render)
         const link = data[i].commit.url;
         const avatar = data[i].author.avatar_url;
         const datetime = data[i].commit.committer.date;
-        const parsedDate = dateParser(datetime);
-        const date = `${parsedDate.day} ${parsedDate.monthName}, ${parsedDate.year}`;
+        const date = dateParser(datetime).printable;
 
         commitsHolder.addItem(link, avatar, author, email, description, date, datetime);
       }

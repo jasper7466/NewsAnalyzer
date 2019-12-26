@@ -7,9 +7,10 @@ import { Progress } from '../blocks/progress/Progress';
 import { Results } from '../blocks/results/Results';
 import { SearchForm } from '../blocks/search/SearchForm';
 
-// Импортируем модули общего назначения
+// Импортируем модули и утилиты общего назначения
 import { NewsApi } from './modules/NewsApi';
 import { AnyContentHolder } from './modules/AnyContentHolder';
+import { dateParser } from './utilities/DateParser';
 
 // Константы
 const MAX_ITEM_PER_RENDER = 3;      // Кол-во результатов за один рендер
@@ -74,7 +75,7 @@ function renderPage(max_render)
         {
             const link = news.articles[head].url;
             const pic = news.articles[head].urlToImage;
-            const date = news.articles[head].publishedAt;
+            const date = dateParser(news.articles[head].publishedAt).printable;
             const title = news.articles[head].title;
             const description = news.articles[head].description;
             const source = news.articles[head].source.name;

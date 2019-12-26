@@ -10,7 +10,8 @@ export function dateParser(DateTime)
         year:       date[0],
         month:      date[1],
         day:        date[2],
-        monthName:  ''
+        monthName:  '',
+        printable:  ''
     }
     const year = date[0];
     const month = date[1];
@@ -31,5 +32,9 @@ export function dateParser(DateTime)
         case '11': parsedData.monthName = 'ноября'; break;
         case '12': parsedData.monthName = 'декабря'; break;
     }
+
+    // Человекочитаемый формат
+    parsedData.printable = `${parsedData.day} ${parsedData.monthName}, ${parsedData.year}`;
+
     return(parsedData);
 }
