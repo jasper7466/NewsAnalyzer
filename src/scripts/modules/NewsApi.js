@@ -3,26 +3,33 @@
 // Класс для работы с API сервиса https://newsapi.org
 export class NewsApi
 {
+    _moduleName = 'NewsApi';             // Название модуля (для формирования сообщений)
+    _URL = 'https://newsapi.org/v2/';    // Базовая часть адреса для запросов
+
     // Конструктор.
-    constructor(newsApikey, newsType, newsFrom, newsTo, newsMaxCount)//, onRequest = undefined, onResponse = undefined, onEmpty = undefined, onError = undefined)
+    constructor(newsApikey, newsType, newsFrom, newsTo, newsMaxCount)
     {
         this._key = newsApikey;     // Ключ для доступа к сервису
         this._type = newsType;      // Тип поиска
         this._from = newsFrom;      // Начальная дата поиска (дней до текущей)      
         this._to = newsTo;          // Конечная дата поиска (дней до текущей)
         this._count = newsMaxCount; // Размер поиска (кол-во записей)
-        this._URL = 'https://newsapi.org/v2/';    // Базовая часть адреса для запросов
-        // this._onRequest = onRequest;
-        // this._onResponse = onResponse;
-        // this._onEmpty = onEmpty;
-        // this._onError = onError;
     }
 
-    // Приватный метод для проверки и вызова опциональных функций
-    _runFunc(func, ...rest)
+    // Внутренний метод для отправки запросов
+    _sendRequest(URL)
     {
-        if(func != undefined)
-            func(rest);
+        // Делаем запрос и возвращаем промис
+        return fetch(URL)
+            .then((res) => {
+                if (res.ok)
+                    return res.json();
+                return Promise.reject(`${this._moduleName}. Error: ${res.status}`);
+            })
+            .catch((err) => {
+                console.log(`${this._moduleName}. Request failed: ${err}`);
+                return Promise.reject(err);
+            });
     }
 
     getNews(query)
@@ -43,29 +50,11 @@ export class NewsApi
         date = new Date();
         date.setDate(date.getDate() + this._to);
         const parsedTo = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-        
-        // if(this._onRequest != undefined)
-        //     this._onRequest();
 
-        return fetch(`${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`)
-            .then((res) => {
-                if (res.ok)
-                {
-                    // if(this._onResponse != undefined)
-                    //     this._onResponse();
-                    // if(res.totalResults === 0)
-                    // {
-                    //     if(this._onEmpty != undefined)
-                    //         this._onEmpty();
-                    // }
-                    // console.log(res);
-                    return res.json();
-                }
-                return Promise.reject(`NewsApi Error: ${res.status}`);
-            })
-            .catch((err) => {
-                console.log('NewsApi Request failed: ', err);
-                return Promise.reject(err);
-            });
+        // Формируем URL
+        const URL = `${this._URL}${this._type}?q=${query}&from=${parsedFrom}&to=${parsedTo}&sortBy=popularity&language=ru&pageSize=${this._count}&apiKey=${this._key}`;
+        
+        // Выполняем запрос, возвращаем промис
+        return this._sendRequest(URL);
     }
 }

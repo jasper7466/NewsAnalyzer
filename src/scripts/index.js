@@ -92,7 +92,7 @@ function renderPage(max_render)
     return render;
 }
 
-let render = undefined;     // Создаём заготовку под экземпляр функции рендеринга
+let render = renderPage(MAX_ITEM_PER_RENDER);     // Создаём экземпляр функции рендеринга
 
 // Функция обработки ввода
 function dataHandler(query)
