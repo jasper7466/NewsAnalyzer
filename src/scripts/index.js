@@ -39,25 +39,7 @@ const newsApi = new NewsApi(newsApikey, newsType, newsFrom, newsTo, newsMaxCount
 // Создаём экземпляр класса для работы c баннерами статуса
 const progress = new Progress(bannerWait, bannerNothing);
 
-// Функция обработки ввода
-function dataHandler(query)
-{
-    results.hide();         // Прячем блок "Резльтаты"
-    progress.showWait();    // Показываем прелоудер
-    newsHolder.clear();     // Чистим контейнер от карточек
-    sessionStorage.setItem('query', query);     // Сохраняем в сессию поисковый запрос
-
-    newsApi.getNews(query)                      // Делаем запрос
-        .then((data) => {
-            sessionStorage.setItem('news', JSON.stringify(data));
-            progress.hide();                    // Прячем прелоудер
-            render();    // Запускаем рендер результатов
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-}
-
+// Функция рендеринга
 function renderPage(max_render)
 {
     let head = 0;   // Текущая позиция в массиве найденных новостей
@@ -87,9 +69,6 @@ function renderPage(max_render)
     
         // Определяем, сколько новостей можем отобразить в данный момент
         let stop = head + Math.min(news.totalResults - head, max);
-        
-        console.log('total: ' + news.totalResults);
-        console.log('stop: ' + stop);
 
         for(head; head < stop; head++)
         {
@@ -102,9 +81,6 @@ function renderPage(max_render)
 
             newsHolder.addItem(link, pic, date, title, description, source);
         }
-        console.log('head: ' + head);
-
-        console.log(head < news.totalResults);
 
         if(head < news.totalResults)
             results.showButton();   // Если остались неотрендеренные карточки - показываем кнопку "Ещё"
@@ -116,10 +92,27 @@ function renderPage(max_render)
     return render;
 }
 
-const render = renderPage(MAX_ITEM_PER_RENDER);
+let render = undefined;     // Создаём заготовку под экземпляр функции рендеринга
 
-function renderNews()
-{}
+// Функция обработки ввода
+function dataHandler(query)
+{
+    results.hide();         // Прячем блок "Результаты"
+    progress.showWait();    // Показываем прелоудер
+    newsHolder.clear();     // Чистим контейнер от карточек
+    sessionStorage.setItem('query', query);             // Сохраняем в сессию поисковый запрос
+
+    newsApi.getNews(query)                              // Делаем запрос
+        .then((data) => {
+            sessionStorage.setItem('news', JSON.stringify(data));
+            progress.hide();                            // Прячем прелоудер
+            render = renderPage(MAX_ITEM_PER_RENDER);   // Сбрасываем функцию рендеринга (её счётчик из замыкания)
+            render();                                   // Запускаем рендер результатов
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 
 // Создаём экземпляр класса для работы c баннерами статуса
 const results = new Results(resultsSection, buttonShowMore, () => render());
@@ -127,11 +120,7 @@ const results = new Results(resultsSection, buttonShowMore, () => render());
 // Создаём экземпляр класса для работы c формой ввода
 const form = new SearchForm(searchForm, (...rest) => dataHandler(...rest));
 
+// Рендерим страницу при её загрузке.
 window.onload = function() {
     render();
-    // render();
 };
-// newsHolder.addItem(1, 2, 3, 4, 5);
-// newsHolder.addItem(1, 2, 3, 4, 5);
-// newsHolder.addItem(1, 2, 3, 4, 5);
-// newsHolder.addItem(1, 2, 3, 4, 5);
