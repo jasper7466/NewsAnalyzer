@@ -30,7 +30,7 @@ export class AnyContentHolder
     // Метод полной очистки контейнера
     clear()
     {
-        this.collection.forEach( (item) => this._container.removeChild());
+        this._collection.forEach( (item) => this._container.removeChild(item.root));
         this._collection = [];
     }
 }

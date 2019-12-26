@@ -11,6 +11,9 @@ import { SearchForm } from '../blocks/search/SearchForm';
 import { NewsApi } from './modules/NewsApi';
 import { AnyContentHolder } from './modules/AnyContentHolder';
 
+// Константы
+const MAX_ITEM_PER_RENDER = 3;
+
 // Получаем ссылки на необходимые узлы структуры документа
 const searchForm = document.querySelector('.search__form');                     // Форма с поисковой строкой
 const resultsSection = document.querySelector('.results');                      // Секция "Результаты поиска"
@@ -42,29 +45,68 @@ const results = new Results(resultsSection, buttonShowMore);
 // Функция обработки ввода
 function dataHandler(query)
 {
-    results.hide();                         // Прячем блок "Резльтаты" и показываем прелоудер
-    progress.showWait();
-    newsApi.getNews(query)                  // Делаем запрос
+    results.hide();         // Прячем блок "Резльтаты"
+    progress.showWait();    // Показываем прелоудер
+    newsHolder.clear();     // Чистим контейнер от карточек
+    sessionStorage.setItem('query', query);     // Сохраняем в сессию поисковый запрос
+
+    newsApi.getNews(query)                      // Делаем запрос
         .then((data) => {
-            console.log(data);
-            progress.hide();                // Прячем прелоудер
-            if(data.totalResults === 0)
-                progress.showEmpty();       // Показываем баннер "Ничего не найдено", если ничего не найдено)
-            else
-            {
-                if(data.totalResults > 3)   
-                    results.showButton();   // Если результатов много - показываем кнопку "Ещё"    
-                results.showSection();      // Показываем весь блок, если результаты есть
-            }
+            sessionStorage.setItem('news', JSON.stringify(data));
+            progress.hide();                    // Прячем прелоудер
+            renderPage(MAX_ITEM_PER_RENDER);    // Запускаем рендер результатов
         })
         .catch((err) => {
             console.log(err);
         })
 }
 
+function renderPage(num)
+{
+    const news = JSON.parse(sessionStorage.getItem('news'));    // Пробуем считать результат запроса
+
+    if(news === null)   // Если результата нет - оставляем страницу в исходном состоянии
+        return;
+
+    const query = sessionStorage.getItem('query');              // Пробуем считать текст запроса
+
+    if(query === null)  // Если текста нет - оставляем страницу в исходном состоянии
+        return;
+
+    // Помещаем текст запроса в строку поиска и рендерим результаты
+    form.setQuery(sessionStorage.getItem('query'));
+    
+    if(news.totalResults === 0)
+    {
+        progress.showEmpty();   // Показываем баннер "Ничего не найдено", если ничего не найдено)
+        return;
+    }
+    if(news.totalResults > MAX_ITEM_PER_RENDER)
+        results.showButton();   // Если результатов много - показываем кнопку "Ещё"
+    else
+        num = news.totalResults;
+
+    for(let i = 0; i < num; i++)
+    {
+        const link = news.articles[i].url;
+        const pic = news.articles[i].urlToImage;
+        const date = news.articles[i].publishedAt;
+        const title = news.articles[i].title;
+        const description = news.articles[i].description;
+        const source = news.articles[i].source.name;
+
+        newsHolder.addItem(link, pic, date, title, description, source);
+    }
+
+    results.showSection();      // Показываем весь блок
+}
+
 // Создаём экземпляр класса для работы c формой ввода
 const form = new SearchForm(searchForm, (...rest) => dataHandler(...rest));
 
+window.onload = function() {
+    renderPage(MAX_ITEM_PER_RENDER);
+};
 // newsHolder.addItem(1, 2, 3, 4, 5);
 // newsHolder.addItem(1, 2, 3, 4, 5);
 // newsHolder.addItem(1, 2, 3, 4, 5);

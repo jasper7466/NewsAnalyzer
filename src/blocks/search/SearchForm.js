@@ -11,6 +11,11 @@ export class SearchForm
         this._form.addEventListener('submit', (event) => this._submit(event));
     }
 
+    setQuery(query)
+    {
+        this._form.elements[0].value = query;
+    }
+
     // Метод валидации. Должен вызываться только по событию "submit"
     _validate()
     {
