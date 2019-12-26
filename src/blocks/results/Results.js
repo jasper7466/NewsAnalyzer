@@ -4,10 +4,12 @@
 export class Results
 {
     // Конструктор класса
-    constructor(section, button)
+    constructor(section, button, handler)
     {
-        this._section = section;    // Ссылка на контейнер
+        this._section = section;        // Ссылка на контейнер
         this._button = button;          // Ссылка на кнопку
+        this._buttonHandler = handler;  // Обработчик нажатия на кнопку
+        this._button.addEventListener('click', (...rest) => this._buttonHandler(...rest));
     }
 
     // Метод отображения секции
@@ -20,6 +22,12 @@ export class Results
     showButton()
     {
         this._button.classList.remove('results_hide');
+    }
+
+    // Метод скрытия кнопки
+    hideButton()
+    {
+        this._button.classList.add('results_hide');
     }
 
     // Метод скрытия всех баннеров

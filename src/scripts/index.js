@@ -12,7 +12,7 @@ import { NewsApi } from './modules/NewsApi';
 import { AnyContentHolder } from './modules/AnyContentHolder';
 
 // Константы
-const MAX_ITEM_PER_RENDER = 3;
+const MAX_ITEM_PER_RENDER = 3;      // Кол-во результатов за один рендер
 
 // Получаем ссылки на необходимые узлы структуры документа
 const searchForm = document.querySelector('.search__form');                     // Форма с поисковой строкой
@@ -39,9 +39,6 @@ const newsApi = new NewsApi(newsApikey, newsType, newsFrom, newsTo, newsMaxCount
 // Создаём экземпляр класса для работы c баннерами статуса
 const progress = new Progress(bannerWait, bannerNothing);
 
-// Создаём экземпляр класса для работы c баннерами статуса
-const results = new Results(resultsSection, buttonShowMore);
-
 // Функция обработки ввода
 function dataHandler(query)
 {
@@ -54,58 +51,85 @@ function dataHandler(query)
         .then((data) => {
             sessionStorage.setItem('news', JSON.stringify(data));
             progress.hide();                    // Прячем прелоудер
-            renderPage(MAX_ITEM_PER_RENDER);    // Запускаем рендер результатов
+            render();    // Запускаем рендер результатов
         })
         .catch((err) => {
             console.log(err);
         })
 }
 
-function renderPage(num)
+function renderPage(max_render)
 {
-    const news = JSON.parse(sessionStorage.getItem('news'));    // Пробуем считать результат запроса
+    let head = 0;   // Текущая позиция в массиве найденных новостей
+    let max = max_render;
 
-    if(news === null)   // Если результата нет - оставляем страницу в исходном состоянии
-        return;
+    // Создаём замыкание
+    function render()
+    {
+        const news = JSON.parse(sessionStorage.getItem('news'));    // Пробуем считать результат запроса
 
-    const query = sessionStorage.getItem('query');              // Пробуем считать текст запроса
+        if(news === null)   // Если результата нет - оставляем страницу в исходном состоянии
+            return;
 
-    if(query === null)  // Если текста нет - оставляем страницу в исходном состоянии
-        return;
+        const query = sessionStorage.getItem('query');              // Пробуем считать текст запроса
 
-    // Помещаем текст запроса в строку поиска и рендерим результаты
-    form.setQuery(sessionStorage.getItem('query'));
+        if(query === null)  // Если текста нет - оставляем страницу в исходном состоянии
+            return;
+
+        // Помещаем текст запроса в строку поиска и рендерим результаты
+        form.setQuery(sessionStorage.getItem('query'));
+        
+        if(news.totalResults === 0)
+        {
+            progress.showEmpty();   // Показываем баннер "Ничего не найдено", если ничего не найдено :)
+            return;
+        }
     
-    if(news.totalResults === 0)
-    {
-        progress.showEmpty();   // Показываем баннер "Ничего не найдено", если ничего не найдено)
-        return;
+        // Определяем, сколько новостей можем отобразить в данный момент
+        let stop = head + Math.min(news.totalResults - head, max);
+        
+        console.log('total: ' + news.totalResults);
+        console.log('stop: ' + stop);
+
+        for(head; head < stop; head++)
+        {
+            const link = news.articles[head].url;
+            const pic = news.articles[head].urlToImage;
+            const date = news.articles[head].publishedAt;
+            const title = news.articles[head].title;
+            const description = news.articles[head].description;
+            const source = news.articles[head].source.name;
+
+            newsHolder.addItem(link, pic, date, title, description, source);
+        }
+        console.log('head: ' + head);
+
+        console.log(head < news.totalResults);
+
+        if(head < news.totalResults)
+            results.showButton();   // Если остались неотрендеренные карточки - показываем кнопку "Ещё"
+        else
+            results.hideButton();   // Если нет - прячем кнопку
+
+        results.showSection();
     }
-    if(news.totalResults > MAX_ITEM_PER_RENDER)
-        results.showButton();   // Если результатов много - показываем кнопку "Ещё"
-    else
-        num = news.totalResults;
-
-    for(let i = 0; i < num; i++)
-    {
-        const link = news.articles[i].url;
-        const pic = news.articles[i].urlToImage;
-        const date = news.articles[i].publishedAt;
-        const title = news.articles[i].title;
-        const description = news.articles[i].description;
-        const source = news.articles[i].source.name;
-
-        newsHolder.addItem(link, pic, date, title, description, source);
-    }
-
-    results.showSection();      // Показываем весь блок
+    return render;
 }
+
+const render = renderPage(MAX_ITEM_PER_RENDER);
+
+function renderNews()
+{}
+
+// Создаём экземпляр класса для работы c баннерами статуса
+const results = new Results(resultsSection, buttonShowMore, () => render());
 
 // Создаём экземпляр класса для работы c формой ввода
 const form = new SearchForm(searchForm, (...rest) => dataHandler(...rest));
 
 window.onload = function() {
-    renderPage(MAX_ITEM_PER_RENDER);
+    render();
+    // render();
 };
 // newsHolder.addItem(1, 2, 3, 4, 5);
 // newsHolder.addItem(1, 2, 3, 4, 5);
