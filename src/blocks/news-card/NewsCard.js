@@ -3,12 +3,13 @@
 export class NewsCard
 {
     // Конструктор класса
-    constructor(link, pic, date, title, description, source, ...rest)
+    constructor(link, pic, date, title, description, source)
     {
         // Создаём корневой элемент и сохраняем ссылку на него
         this.root = document.createElement('a');
         this.root.classList.add('news-card');
         this.root.setAttribute('href', link);
+
         // Вставляем в конец элемента внутреннюю разметку по шаблону
         this.root.insertAdjacentHTML('beforeend',
         `

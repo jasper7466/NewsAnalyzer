@@ -8,7 +8,7 @@ export class GitHubApi
     // Конструктор.
     constructor(user, repo)
     {
-        this._baseURL = `https://api.github.com/repos/${user}/${repo}/commits`;  // URL для запросов
+        this._URL = `https://api.github.com/repos/${user}/${repo}/commits`;  // URL для запросов
     }
 
     // Внутренний метод для отправки запросов
@@ -29,7 +29,6 @@ export class GitHubApi
 
     getCommits()
     {
-        console.log(this._baseURL);
-        return this._sendRequest(this._baseURL);
+        return this._sendRequest(this._URL);
     }
 }
