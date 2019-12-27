@@ -101,6 +101,7 @@ function dataHandler(query)
     results.hide();         // Прячем блок "Результаты"
     progress.showWait();    // Показываем прелоудер
     newsHolder.clear();     // Чистим контейнер от карточек
+    sessionStorage.removeItem('statistics');            // Удаляем вычисленную статистику (paper.js)
     sessionStorage.setItem('query', query);             // Сохраняем в сессию поисковый запрос
 
     newsApi.getNews(query)                              // Делаем запрос
