@@ -7,9 +7,9 @@ export class AnyContentHolder
     // Требование к классу элемента: наличие публичного свойства "root", указывающего на его верхний узел DOM-структуры
     constructor(location, creator)  
     {
-        this._collection = [];       // Массив добавлеяемых объектов
+        this._collection = [];       // Массив добавляемых объектов
         this._creator = creator;     // Ссылка на конструктор экземпляра объекта
-        this._container = location;  // Запоминаем ссылку внутрь объекта
+        this._container = location;  // Запоминаем ссылку на контейнер
     }
 
     // Метод добавления экземпляра объекта и его размещения в контейнере
@@ -30,7 +30,7 @@ export class AnyContentHolder
     // Метод полной очистки контейнера
     clear()
     {
-        this._collection.forEach( (item) => this._container.removeChild(item.root));
+        this._collection.forEach((item) => this._container.removeChild(item.root));
         this._collection = [];
     }
 }

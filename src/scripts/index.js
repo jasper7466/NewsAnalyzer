@@ -88,7 +88,7 @@ function renderPage(max_render)
         else
             results.hideButton();   // Если нет - прячем кнопку
 
-        results.showSection();
+        results.showSection();      // Отображаем секцию с результатами
     }
     return render;
 }

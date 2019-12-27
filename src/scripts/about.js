@@ -43,10 +43,12 @@ function renderPage(max_render)
 
         commitsHolder.addItem(link, avatar, author, email, description, date, datetime);
       }
-      // Создаём слайдер, указываем ссылку на слайдер коммитов
-      let commitSlider = new Flickity( '.commits__carousel', {
+      // Создаём слайдер, указываем ссылку на узел слайдера коммитов
+      const commitSlider = new Flickity('.commits__carousel', {
         groupCells: 1,
       });
+      // Пришлось перенести его именно сюда, т.к. инициализация ломает вёрстку в случае,
+      // когда карточки ещё не добавлены.
   })
   .catch((err) => {
       console.log(err);
