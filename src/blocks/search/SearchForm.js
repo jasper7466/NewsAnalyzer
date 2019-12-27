@@ -9,11 +9,28 @@ export class SearchForm
         this._form = form;                              // Ссылка на форму
         this._handler = onSubmit;                       // Функция-обработчик данных от формы
         this._input = this._form.elements[0];           // Ссылка на поле ввода
+        this._button = this._form.elements[1];           // Ссылка на кнопку отправки
         this._error = this._input.nextElementSibling;   // Ссылка на поле для вывода ошибок
 
         // Развешиваем слушателей на события
         this._form.addEventListener('submit', (event) => this._submit(event));      // Отправка
         this._form.addEventListener('input', (event) => this._clearError(event));   // Ввод
+    }
+
+    // Метод для блокировки формы
+    lock()
+    {
+        this._button.setAttribute('disabled', 'true');
+        this._input.setAttribute('disabled', 'true');
+        this._form.classList.add('search__form_disabled');
+    }
+
+    // Метод для разлокировки формы
+    unlock()
+    {
+        this._button.removeAttribute('disabled');
+        this._input.removeAttribute('disabled');
+        this._form.classList.remove('search__form_disabled');
     }
 
     // Метод для программного заполнения поля ввода
@@ -73,6 +90,8 @@ export class SearchForm
         if(!this._validate(query))
             return;
         
-        this._handler(query);           // Если валидация прошла успешно - передаём запрос в обработчик
+        // Если валидация прошла успешно
+        this.lock();                    // Блокируем форму
+        this._handler(query);           // Передаём запрос в обработчик
     }
 }
