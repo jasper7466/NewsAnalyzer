@@ -22,6 +22,7 @@ const cardsContainer = document.querySelector('.results__cards-container');     
 const buttonShowMore = document.querySelector('.results__button');              // Кнопка "Показать ещё"
 const bannerWait = document.querySelector('.progress_wait');                    // Баннер "Идёт поиск"
 const bannerNothing = document.querySelector('.progress_no-result');            // Баннер "Ничего не найдено"
+const bannerError = document.querySelector('.progress_error');                  // Баннер "Ошибка выполнения запроса"
 
 // Задаём конфигурацию поискового движка
 const newsApikey = 'd5080e38d27a400eb92d036d47715e50';  // Ключ для доступа к сервису
@@ -38,7 +39,7 @@ const newsHolder = new AnyContentHolder(cardsContainer, (...rest) => new NewsCar
 const newsApi = new NewsApi(newsApikey, newsType, newsFrom, newsTo, newsMaxCount);
 
 // Создаём экземпляр класса для работы c баннерами статуса
-const progress = new Progress(bannerWait, bannerNothing);
+const progress = new Progress(bannerWait, bannerNothing, bannerError);
 
 // Функция рендеринга
 function renderPage(max_render)
@@ -113,6 +114,7 @@ function dataHandler(query)
         })
         .catch((err) => {
             console.log(err);
+            progress.showError(err);
         })
 }
 
