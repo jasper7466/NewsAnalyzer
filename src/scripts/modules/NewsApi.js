@@ -43,7 +43,7 @@ export class NewsApi
 
         // Вычисляем дату "от" и парсим в удобоваримый для сервиса формат
         let date = new Date();
-        date.setDate(date.getDate() + this._from);
+        date.setDate(date.getDate() + this._from + 1);
         const parsedFrom = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
         // Аналогично для даты "до"
