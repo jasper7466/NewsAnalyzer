@@ -4,7 +4,6 @@
 export function dateParser(dateTime)
 {
     const date = new Date(dateTime);
-    console.log(date);
 
     const parsedData =
     {

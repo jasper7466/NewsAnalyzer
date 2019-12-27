@@ -29,8 +29,6 @@ function renderPage(max_render)
 {
   githubApi.getCommits()
     .then((data) => {
-      // data = JSON.parse(data);
-      console.log(data);
       for(let i = 0; i < max_render; i++)
       {
         const author = data[i].commit.committer.name;
@@ -54,7 +52,6 @@ function renderPage(max_render)
       console.log(err);
   })
 }
-
 
 window.onload = function() {
   renderPage(MAX_ITEM_PER_RENDER);

@@ -34,7 +34,6 @@ function generateJsEntryPoints(templateDir) {
 		// Делаем проверку на расширений файла (чтобы исключить прочие файлы и папки)
 		if (extension === 'js')
 			entries[name] = path.resolve(__dirname, `${templateDir}/${name}.${extension}`);
-		console.log(entries[name]);
 	});
 	return entries;
 }
