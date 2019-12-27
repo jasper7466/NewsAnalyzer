@@ -9,6 +9,7 @@ export class NewsCard
         this.root = document.createElement('a');
         this.root.classList.add('news-card');
         this.root.setAttribute('href', link);
+        this.root.setAttribute('target', '_blank');
 
         // Вставляем в конец элемента внутреннюю разметку по шаблону
         this.root.insertAdjacentHTML('beforeend',

@@ -34,7 +34,7 @@ function renderPage(max_render)
         const author = data[i].commit.committer.name;
         const email = data[i].commit.committer.email;
         const description = data[i].commit.message;
-        const link = data[i].commit.url;
+        const link = data[i].html_url;
         const avatar = data[i].author.avatar_url;
         const datetime = data[i].commit.committer.date;
         const date = dateParser(datetime).printable;

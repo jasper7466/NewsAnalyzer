@@ -14,5 +14,6 @@
   width: 100%;
   border-radius: 15px;
   background-color: #fff;
+  text-decoration: none;
   cursor: url(../../images/cur-lapka.png), auto;
 }
