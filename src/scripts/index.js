@@ -102,12 +102,12 @@ function dataHandler(query)
     results.hide();         // Прячем блок "Результаты"
     progress.showWait();    // Показываем прелоудер
     newsHolder.clear();     // Чистим контейнер от карточек
-    sessionStorage.removeItem('statistics');            // Удаляем вычисленную статистику (paper.js)
-    sessionStorage.setItem('query', query);             // Сохраняем в сессию поисковый запрос
 
     newsApi.getNews(query)                              // Делаем запрос
         .then((data) => {
-            sessionStorage.setItem('news', JSON.stringify(data));
+            sessionStorage.setItem('news', JSON.stringify(data));   // Cохраняем ответ сервера в сессию
+            sessionStorage.removeItem('statistics');                // Удаляем вычисленную статистику (paper.js)
+            sessionStorage.setItem('query', query);                 // Сохраняем в сессию поисковый запрос
             progress.hide();                            // Прячем прелоудер
             render = renderPage(MAX_ITEM_PER_RENDER);   // Сбрасываем функцию рендеринга (её счётчик из замыкания)
             render();                                   // Запускаем рендер результатов
