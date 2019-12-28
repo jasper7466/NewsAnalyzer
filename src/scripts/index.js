@@ -50,18 +50,18 @@ function renderPage(maxRender)
     // Создаём замыкание
     function render()
     {
-        const news = JSON.parse(sessionStorage.getItem('news'));    // Пробуем считать результат запроса
+        const news = JSON.parse(localStorage.getItem('news'));    // Пробуем считать результат запроса
 
         if(news === null)   // Если результата нет - оставляем страницу в исходном состоянии
             return;
 
-        const query = sessionStorage.getItem('query');              // Пробуем считать текст запроса
+        const query = localStorage.getItem('query');              // Пробуем считать текст запроса
 
         if(query === null)  // Если текста нет - оставляем страницу в исходном состоянии
             return;
 
         // Помещаем текст запроса в строку поиска и рендерим результаты
-        form.setQuery(sessionStorage.getItem('query'));
+        form.setQuery(localStorage.getItem('query'));
         
         if(news.totalResults === 0)
         {
@@ -105,9 +105,9 @@ function dataHandler(query)
 
     newsApi.getNews(query)                              // Делаем запрос
         .then((data) => {
-            sessionStorage.setItem('news', JSON.stringify(data));   // Cохраняем ответ сервера в сессию
-            sessionStorage.removeItem('statistics');                // Удаляем вычисленную статистику (paper.js)
-            sessionStorage.setItem('query', query);                 // Сохраняем в сессию поисковый запрос
+            localStorage.setItem('news', JSON.stringify(data));   // Cохраняем ответ сервера в сессию
+            localStorage.removeItem('statistics');                // Удаляем вычисленную статистику (paper.js)
+            localStorage.setItem('query', query);                 // Сохраняем в сессию поисковый запрос
             progress.hide();                            // Прячем прелоудер
             render = renderPage(MAX_ITEM_PER_RENDER);   // Сбрасываем функцию рендеринга (её счётчик из замыкания)
             render();                                   // Запускаем рендер результатов

@@ -23,15 +23,15 @@ const weeklyStats = new Week(weekContainer);
 
 window.onload = function() {
 
-    let statistics = JSON.parse(sessionStorage.getItem('statistics'));    // Пробуем считать результат запроса
+    let statistics = JSON.parse(localStorage.getItem('statistics'));    // Пробуем считать результат запроса
     if(statistics == null)  // Если для данного запроса статистика ранее не вычислялась - будем вычислять
     {
-        const news = JSON.parse(sessionStorage.getItem('news'));    // Пробуем считать результат запроса
+        const news = JSON.parse(localStorage.getItem('news'));    // Пробуем считать результат запроса
         if(news === null)   // Если результата нет - оставляем страницу в исходном состоянии
             return;
 
         statistics = {};                        // Инициализируем пустой массив для хранения статистики
-        statistics.query = sessionStorage.getItem('query');   // Поисковый запрос
+        statistics.query = localStorage.getItem('query');   // Поисковый запрос
         statistics.daily = []                   // Массив статистики по дням
         statistics.total = news.totalResults;   // Новостей за неделю
         statistics.headers = 0;                 // Упоминаний в заголовках. Пока инициализируем как 0
@@ -41,7 +41,7 @@ window.onload = function() {
 
         // Подсчёт упоминаний в заголовках
         // "Чистим" запрос
-        const query = sessionStorage.getItem('query').replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
+        const query = localStorage.getItem('query').replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
         news.articles.forEach(item => {
             // Аналогично, чистим заголовок (только буквы, цифры и пробел)
             const title = (item.title).replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
@@ -81,7 +81,7 @@ window.onload = function() {
             }
         });
 
-        sessionStorage.setItem('statistics', JSON.stringify(statistics));
+        localStorage.setItem('statistics', JSON.stringify(statistics));
     }
 
     // Вставляем значения в разметку
