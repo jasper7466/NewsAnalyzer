@@ -42,10 +42,10 @@ const newsApi = new NewsApi(newsApikey, newsType, newsFrom, newsTo, newsMaxCount
 const progress = new Progress(bannerWait, bannerNothing, bannerError);
 
 // Функция рендеринга
-function renderPage(max_render)
+function renderPage(maxRender)
 {
     let head = 0;   // Текущая позиция в массиве найденных новостей
-    let max = max_render;
+    let max = maxRender;
 
     // Создаём замыкание
     function render()

@@ -25,11 +25,11 @@ const commitsHolder = new AnyContentHolder(commitsContainer, (...rest) => new Co
 // Создаём экземпляр класса для получения коммитов, указываем пользователя и репозитарий
 const githubApi = new GitHubApi('jasper7466', 'NewsAnalyzer');
 
-function renderPage(max_render)
+function renderPage(maxRender)
 {
   githubApi.getCommits()
     .then((data) => {
-      for(let i = 0; i < max_render; i++)
+      for(let i = 0; i < maxRender; i++)
       {
         const author = data[i].commit.committer.name;
         const email = data[i].commit.committer.email;
