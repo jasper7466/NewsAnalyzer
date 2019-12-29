@@ -94,13 +94,22 @@ window.onload = function() {
     for(let i = statistics.daily.length -1; i >= 0;)
     {
         const current = dateParser(statistics.daily[i].date);
+        
+        const bar = {
+            caption: current.short,
+            value: statistics.daily[i].quantity
+        };
 
         if(newHeaderRequired)   // Если нужно вставить
         {
+            const barHeader = {
+                caption: `месяц (${current.monthNameNom})`,
+                value: 'кол-во упоминаний'
+            }
             // Добавляем "шапку", "линейку" и строку
-            weeklyStats.insertHeader(`месяц (${current.monthNameNom})`, 'кол-во упоминаний');
+            weeklyStats.insertHeader(barHeader);
             weeklyStats.insertRuler();
-            weeklyStats.insertBar(current.short, statistics.daily[i].quantity);
+            weeklyStats.insertBar(bar);
             newHeaderRequired = false;
             i--;    // Идём дальше
         }
@@ -114,7 +123,7 @@ window.onload = function() {
             }
             else    // Если нет - добавляем строку и идём дальше
             {
-                weeklyStats.insertBar(current.short, statistics.daily[i].quantity);
+                weeklyStats.insertBar(bar);
                 i--;
             }
         }

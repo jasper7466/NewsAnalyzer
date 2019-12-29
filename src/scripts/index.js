@@ -74,14 +74,15 @@ function renderPage(maxRender)
 
         for(head; head < stop; head++)
         {
-            const link = news.articles[head].url;
-            const pic = news.articles[head].urlToImage;
-            const date = dateParser(news.articles[head].publishedAt).printable;
-            const title = news.articles[head].title;
-            const description = news.articles[head].description;
-            const source = news.articles[head].source.name;
-
-            newsHolder.addItem(link, pic, date, title, description, source);
+            const card = {
+                link: news.articles[head].url,
+                pic: news.articles[head].urlToImage,
+                date: dateParser(news.articles[head].publishedAt).printable,
+                title: news.articles[head].title,
+                description: news.articles[head].description,
+                source: news.articles[head].source.name
+            };
+            newsHolder.addItem(card);
         }
 
         if(head < news.totalResults)

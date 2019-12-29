@@ -31,15 +31,16 @@ function renderPage(maxRender)
     .then((data) => {
       for(let i = 0; i < maxRender; i++)
       {
-        const author = data[i].commit.committer.name;
-        const email = data[i].commit.committer.email;
-        const description = data[i].commit.message;
-        const link = data[i].html_url;
-        const avatar = data[i].author.avatar_url;
-        const datetime = data[i].commit.committer.date;
-        const date = dateParser(datetime).printable;
-
-        commitsHolder.addItem(link, avatar, author, email, description, date, datetime);
+        const commit = {
+          author: data[i].commit.committer.name,
+          email: data[i].commit.committer.email,
+          description: data[i].commit.message,
+          link: data[i].html_url,
+          avatar: data[i].author.avatar_url,
+          datetime: data[i].commit.committer.date,
+          date: dateParser(data[i].commit.committer.date).printable
+        };
+        commitsHolder.addItem(commit);
       }
       // Создаём слайдер, указываем ссылку на узел слайдера коммитов
       const commitSlider = new Flickity('.commits__carousel', {

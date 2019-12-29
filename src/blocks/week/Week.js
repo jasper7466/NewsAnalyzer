@@ -1,25 +1,32 @@
 'use strict';
 
+// Импортируем базовый класс
+import { BaseComponent } from '../../scripts/modules/BaseComponent';
+
 // Класс работы с отрисовкой гистограммы
-export class Week
+export class Week extends BaseComponent
 {
     // Конструктор класса
     constructor(holder)
     {
+        super();
         this._holder = holder;  // Ссылка на гистограмму
     }
 
-    insertHeader(caption0, caption1)
+    insertHeader(header)
     {
         // Создаём корневой элемент
         const root = document.createElement('div');
         root.classList.add('week__header');
 
+        // Чистим поля от XSS
+        header = this.xssObjectFix(header);
+
         // Вставляем в конец элемента внутреннюю разметку по шаблону
         root.insertAdjacentHTML('beforeend',
         `
-            <p class="week__month week__column">${caption0}</p>
-            <p class="week__mentions">${caption1}</p>
+            <p class="week__month week__column">${header.caption}</p>
+            <p class="week__mentions">${header.value}</p>
         `);
         this._holder.appendChild(root);
     }
@@ -46,19 +53,22 @@ export class Week
         this._holder.appendChild(root);
     }
 
-    insertBar(caption, value)
+    insertBar(bar)
     {
         // Создаём корневой элемент
         const root = document.createElement('div');
         root.classList.add('week__row');
         root.classList.add('week__row_progress');
 
+        // Чистим поля от XSS
+        bar = this.xssObjectFix(bar);
+
         // Вставляем в конец элемента внутреннюю разметку по шаблону
         root.insertAdjacentHTML('beforeend',
         `
-            <p class="week__day-caption week__column">${caption}</p>
+            <p class="week__day-caption week__column">${bar.caption}</p>
             <div class="week__row-content-container">
-                <span class="week__bar" style="width: ${value}%">${value}</span>
+                <span class="week__bar" style="width: ${bar.value}%">${bar.value}</span>
             </div>
         `);
         this._holder.appendChild(root);
