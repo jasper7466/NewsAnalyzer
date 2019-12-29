@@ -1,5 +1,3 @@
-'use strict';
-
 // Класс дял работы с контейнером результатов
 export class Results
 {

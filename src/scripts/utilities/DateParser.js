@@ -1,5 +1,3 @@
-'use strict';
-
 // Парсер даты
 export function dateParser(dateTime)
 {

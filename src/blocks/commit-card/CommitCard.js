@@ -1,5 +1,3 @@
-'use strict';
-
 // Импортируем базовый класс
 import { BaseComponent } from '../../scripts/modules/BaseComponent';
 export class CommitCard extends BaseComponent

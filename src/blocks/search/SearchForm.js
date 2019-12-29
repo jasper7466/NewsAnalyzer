@@ -1,5 +1,3 @@
-'use strict';
-
 // Класс работы с поисковой формой
 export class SearchForm
 {

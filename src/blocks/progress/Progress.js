@@ -1,5 +1,3 @@
-'use strict';
-
 // Класс работы с баннерами состояния
 export class Progress
 {

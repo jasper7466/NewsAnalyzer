@@ -1,5 +1,3 @@
-'use strict';
-
 // Контейнер для чего-либо
 export class AnyContentHolder
 {

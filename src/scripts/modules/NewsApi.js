@@ -1,5 +1,3 @@
-'use strict';
-
 // Класс для работы с API сервиса https://newsapi.org
 export class NewsApi
 {

@@ -1,5 +1,3 @@
-'use strict';
-
 // Класс для работы с API сервиса https://github.com/
 export class GitHubApi
 {
