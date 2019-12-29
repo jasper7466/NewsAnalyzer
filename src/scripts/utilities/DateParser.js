@@ -2,6 +2,10 @@
 export function dateParser(dateTime)
 {
     const date = new Date(dateTime);
+    const nameNom = ['январь', 'февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь']
+    const name = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    const dayFull = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+    const dayShort = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
     const parsedData =
     {
@@ -9,102 +13,13 @@ export function dateParser(dateTime)
         month:          date.getMonth(),
         day:            date.getDate(),
         dayName: {
-            full:       '',
-            short:      ''
+            full:       dayFull[date.getDay()],
+            short:      dayShort[date.getDay()]
         },
-        monthName:      '',
-        monthNameNom:   '',
-        printable:      ''
-    }
-
-    switch(date.getMonth())
-    {
-        case 0:
-            parsedData.monthNameNom = 'январь';
-            parsedData.monthName = 'января';
-            break;
-        case 1:
-            parsedData.monthNameNom = 'февраль';
-            parsedData.monthName = 'февраля';
-            break;
-        case 2:
-            parsedData.monthNameNom = 'март';
-            parsedData.monthName = 'марта';
-            break;
-        case 3:
-            parsedData.monthNameNom = 'апрель';
-            parsedData.monthName = 'апреля';
-            break;
-        case 4:
-            parsedData.monthNameNom = 'май';
-            parsedData.monthName = 'мая';
-            break;
-        case 5:
-            parsedData.monthNameNom = 'июнь';
-            parsedData.monthName = 'июня';
-            break;
-        case 6:
-            parsedData.monthNameNom = 'июль';
-            parsedData.monthName = 'июля';
-            break;
-        case 7:
-            parsedData.monthNameNom = 'август';
-            parsedData.monthName = 'августа';
-            break;
-        case 8:
-            parsedData.monthNameNom = 'сентябрь';
-            parsedData.monthName = 'сентября';
-            break;
-        case 9:
-            parsedData.monthNameNom = 'октябрь';
-            parsedData.monthName = 'октября';
-            break;
-        case 10:
-            parsedData.monthNameNom = 'ноябрь';
-            parsedData.monthName = 'ноября';
-            break;
-        case 11:
-            parsedData.monthNameNom = 'декабрь';
-            parsedData.monthName = 'декабря';
-            break;
-        default:
-            console.log('DateParser: unknown month index.');
-            break;
-    }
-
-    switch(date.getDay())
-    {
-        case 0:
-            parsedData.dayName.full = 'воскресенье';
-            parsedData.dayName.short = 'вс';
-            break;
-        case 1:
-            parsedData.dayName.full = 'понедельник';
-            parsedData.dayName.short = 'пн';
-            break;
-        case 2:
-            parsedData.dayName.full = 'вторник';
-            parsedData.dayName.short = 'вт';
-            break;
-        case 3:
-            parsedData.dayName.full = 'среда';
-            parsedData.dayName.short = 'ср';
-            break;
-        case 4:
-            parsedData.dayName.full = 'четверг';
-            parsedData.dayName.short = 'чт';
-            break;
-        case 5:
-            parsedData.dayName.full = 'пятница';
-            parsedData.dayName.short = 'пт';
-            break;
-        case 6:
-            parsedData.dayName.full = 'суббота';
-            parsedData.dayName.short = 'сб';
-            break;
-        default:
-            console.log('DateParser: unknown day of week index.');
-            break;
+        monthName:      name[date.getMonth()],
+        monthNameNom:   nameNom[date.getMonth()],
+        printable:      '',
+        short:          ''
     }
 
     // Человекочитаемый формат
