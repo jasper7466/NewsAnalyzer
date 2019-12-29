@@ -8,7 +8,7 @@
   <meta name="keywords" content="Новости, Анализ, Статистика, Анализатор новостей, NewsAnalyzer, News analyzer">
   <meta name="author" content="Tim">
   <title>Главная</title>
-  <link rel="stylesheet" href="./styles/style.d337db2320e1e8f047e5.css">
+  <link rel="stylesheet" href="./styles/style.1128573c888866e4562b.css">
   <link rel="icon" href="./images/favicon.png" type="image/png">
 </head>
 <body class="page">
@@ -30,8 +30,9 @@
     <section class="search">
       <h1 class="search__title">Что в мире творится?</h1>
       <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
-      <form class="search__form">
-          <input class="search__input" type="search" required name="request-field" id="id1" placeholder="Введите тему новости">
+      <form class="search__form" disabled>
+          <input class="search__input" type="search" name="request-field" id="id1" placeholder="Введите тему новости">
+          <span class="search__error search__error_hide"></span>
           <input class="search__submit custom-cursor" type="submit" value="Искать">
       </form>
     </section>
@@ -48,6 +49,11 @@
       <img class="progress__pic" src="./images/not-found.svg" alt="Баннер об отсутсвии материалов, соответствующих запросу">
       <h2 class="progress__text progress__text_big" >Ничего не найдено</h2>
       <p class="progress__text">К сожалению по вашему запросу ничего не найдено.</p>
+    </section>
+    <!-- - - - - - MAIN / ERROR - - - - - -->
+    <section class="progress progress_error progress_hide">
+      <h2 class="progress__text progress__text_big" >При выполнении запроса произошла ошибка</h2>
+      <p class="progress__text"></p>
     </section>
     <!-- - - - - - MAIN / RESULTS - - - - - -->
     <section class="results results_hide">
