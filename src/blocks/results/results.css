@@ -15,3 +15,7 @@
   box-sizing: border-box;
   background-color: #f5f6f7;
 }
+
+.results_hide {
+  display: none;
+}

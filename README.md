@@ -15,7 +15,7 @@
 
 ## Актуальная версия
 
- - Версия: [v0.0.1](https://github.com/jasper7466/NewsAnalyzer/tree/v0.0.1)
+ - Версия: [v0.0.2](https://github.com/jasper7466/NewsAnalyzer/tree/v0.0.2)
  - Ссылка на web-станицу: https://jasper7466.github.io/NewsAnalyzer/
 
 ## Как развернуть проект

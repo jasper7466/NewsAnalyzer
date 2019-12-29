@@ -30,8 +30,9 @@
     <section class="search">
       <h1 class="search__title">Что в мире творится?</h1>
       <p class="search__subtitle">Введите в поиске любую тему и узнайте, насколько популярной она&nbsp;была в новостях за прошедшую неделю.</p>
-      <form class="search__form">
-          <input class="search__input" type="search" required name="request-field" id="id1" placeholder="Введите тему новости">
+      <form class="search__form" disabled>
+          <input class="search__input" type="search" name="request-field" id="id1" placeholder="Введите тему новости">
+          <span class="search__error search__error_hide"></span>
           <input class="search__submit custom-cursor" type="submit" value="Искать">
       </form>
     </section>
@@ -39,18 +40,23 @@
   <!-- - - - - - MAIN - - - - - -->
   <main class="main">
     <!-- - - - - - MAIN / IN-PROGRESS - - - - - -->
-    <section class="progress">
+    <section class="progress progress_wait progress_hide">
       <i class="progress__pic progress__pic_preloader"></i>
       <h2 class="progress__text">Идёт поиск новостей...</h2>
     </section>
     <!-- - - - - - MAIN / NO-RESULT - - - - - -->
-    <section class="progress progress_no-result">
+    <section class="progress progress_no-result progress_hide">
       <img class="progress__pic" src="<%=require('../images/not-found.svg')%>" alt="Баннер об отсутсвии материалов, соответствующих запросу">
       <h2 class="progress__text progress__text_big" >Ничего не найдено</h2>
       <p class="progress__text">К сожалению по вашему запросу ничего не найдено.</p>
     </section>
+    <!-- - - - - - MAIN / ERROR - - - - - -->
+    <section class="progress progress_error progress_hide">
+      <h2 class="progress__text progress__text_big" >При выполнении запроса произошла ошибка</h2>
+      <p class="progress__text"></p>
+    </section>
     <!-- - - - - - MAIN / RESULTS - - - - - -->
-    <section class="results">
+    <section class="results results_hide">
       <div class="results__content-container">
         <div class="results__head-container">
           <h2 class="results__title">Результаты поиска</h2>
@@ -59,42 +65,8 @@
             <img class="results__analytics-link-arrow-pic" src="<%=require('../images/icon-right-arrow.svg')%>" alt="Иконка левой стрелки">
           </a>
         </div>
-        <div class="results__cards-container">
-          <div class="card custom-cursor">
-            <div class="card__pic-container">
-              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
-            </div>
-            <div class="card__info">
-              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
-              <h3 class="card__title">Lorem ipsum dolor sit amet</h3>
-                <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="card__source" >лента.ру</p>
-            </div>
-          </div>
-          <div class="card custom-cursor">
-            <div class="card__pic-container">
-              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
-            </div>
-            <div class="card__info">
-              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
-              <h3 class="card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</h3>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="card__source" >лента.ру</p>
-            </div>
-          </div>
-          <div class="card custom-cursor">
-            <div class="card__pic-container">
-              <img class="card__pic" src="<%=require('../images/header-background.jpg')%>" alt="Фоновое изображение новостной карточки">
-            </div>
-            <div class="card__info">
-              <time class="card__data-stamp" datetime="2019-08-02">2 августа, 2019</time>
-              <h3 class="card__title">Lorem ipsum dolor sit amet</h3>
-              <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="card__source" >лента.ру</p>
-            </div>
-          </div>
-        </div>
-        <button class="results__button custom-cursor">Показать ещё</button>
+        <div class="results__cards-container"></div>
+        <button class="results__button results_hide custom-cursor">Показать ещё</button>
       </div>
     </section>
     <!-- - - - - - MAIN / AUTHOR - - - - - -->

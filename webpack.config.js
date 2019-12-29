@@ -28,12 +28,14 @@ function generateJsEntryPoints(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
   const entries = new Object;
 	templateFiles.map(item => {
-	  const parts = item.split('.');
-	  const name = parts[0];
-    const extension = parts[1];
-    entries[name] = path.resolve(__dirname, `${templateDir}/${name}.${extension}`);
-  });
-  return entries;
+		const parts = item.split('.');
+	  	const name = parts[0];
+		const extension = parts[1];
+		// Делаем проверку на расширений файла (чтобы исключить прочие файлы и папки)
+		if (extension === 'js')
+			entries[name] = path.resolve(__dirname, `${templateDir}/${name}.${extension}`);
+	});
+	return entries;
 }
 
 const htmlPlugins = generateHtmlPlugins('./src/pages');

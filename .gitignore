@@ -21,3 +21,4 @@ Desktop.ini
 *.sublime
 *.vscode
 .editorconfig
+.eslintrc.js
