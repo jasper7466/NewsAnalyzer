@@ -23,6 +23,17 @@ const headersField = document.querySelector('.statistics__title-mentions'); // �
 // Создаём экземпляр класса для работы с гистограммой
 const weeklyStats = new Week(weekContainer);
 
+// Подсчёт кол-ва упоминаний
+function mentionsCalc(text, substring)
+{
+    // "Чистим" искомую строку
+    substring = substring.replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
+    // "Чистим" текст
+    text = text.replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
+    // Возвращаем число вхождений строки в текст
+    return text.split(substring).length -1;
+}
+
 window.onload = function() {
 
     let statistics = JSON.parse(localStorage.getItem('statistics'));    // Пробуем считать результат запроса
@@ -41,27 +52,16 @@ window.onload = function() {
         date.setHours(0, 0, 0, 0);              // Обнуляем поля времени
         let i = 0;                              // Инициализируем счётчик
 
-        // Подсчёт упоминаний в заголовках
-        // "Чистим" запрос
-        const query = localStorage.getItem('query').replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
-        news.articles.forEach(item => {
-            // Аналогично, чистим заголовок (только буквы, цифры и пробел)
-            const title = (item.title).replace(/[^A-Za-zА-Яа-яЁё\d\s]/g, '').trim().toLowerCase();
-            // Считаем вхождения строки запроса в строку заголовка
-            statistics.headers += (title.split(query).length -1);
-        });
-        
         // Наполняем массив объектами с датами и кол-вом упоминаний
         while(i < STATISTICS_DAY_DEPTH)
         {
-            console.log(date);
             const item = {
                 date: undefined,
                 quantity: 0
             };
             
             item.date = date.getTime();     // Записываем преобразованную к миллисекундам дату
-            statistics.daily.push(item);          // Помещаем в массив
+            statistics.daily.push(item);    // Помещаем в массив
 
             // Шагаем на величину шага по дате назад
             date.setDate(date.getDate() - STATISTICS_DAY_STEP);
@@ -73,11 +73,16 @@ window.onload = function() {
             date.setHours(0, 0, 0, 0);                  // Обнуляем поля времени
             date = date.getTime();                      // Преобразовываем к миллисекундам
 
+            // Подсчёт упоминаний в заголовках за запрашиваемый период
+            statistics.headers += mentionsCalc(item.title, statistics.query);
+
+            // Подсчёт упоминаний в заголовках и описании по дням
             for(i = 0; i < STATISTICS_DAY_DEPTH; i++)   // Проходим по массиву до первого совпадения
             {
                 if(statistics.daily[i].date == date)
                 {
-                    statistics.daily[i].quantity++;
+                    statistics.daily[i].quantity += mentionsCalc(item.title, statistics.query);        // в заголовках
+                    statistics.daily[i].quantity += mentionsCalc(item.description, statistics.query);  // в описании
                     break;
                 }
             }
