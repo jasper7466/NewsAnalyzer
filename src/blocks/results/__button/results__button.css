@@ -13,6 +13,8 @@
   line-height: 24px;
   text-align: center;
   color: #1a1b22;
+  opacity: 1;
+  transition: background-color .1s ease-in;
 }
 
 .results__button:focus {
@@ -22,6 +24,7 @@
 .results__button:hover {
   background-color: #2f71e5;
   color: #fff;
+  transition: background-color .1s ease-in;
 }
 
 .results__button:active {
