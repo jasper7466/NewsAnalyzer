@@ -114,13 +114,14 @@ function dataHandler(query)
             progress.hide();                            // Прячем прелоудер
             render = renderPage(MAX_ITEM_PER_RENDER);   // Сбрасываем функцию рендеринга (её счётчик из замыкания)
             render();                                   // Запускаем рендер результатов
-            form.unlock();                              // Снимаем блокировку с формы
         })
         .catch((err) => {
             console.log(err);
             progress.showError(err);
-            form.unlock();                              // Снимаем блокировку с формы
         })
+        .finally( () => {
+            form.unlock();                              // Снимаем блокировку с формы
+        });
 }
 
 // Создаём экземпляр класса для работы c баннерами статуса
