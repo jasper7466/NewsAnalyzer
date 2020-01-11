@@ -72,8 +72,7 @@ function renderPage(maxRender)
         }
     
         // Определяем, сколько новостей можем отобразить в данный момент
-        let stop = head + Math.min(news.totalResults - head, max);
-
+        let stop = head + Math.min(news.articles.length - head, max);
         for(head; head < stop; head++)
         {
             const card = {
@@ -92,6 +91,7 @@ function renderPage(maxRender)
         else
             results.hideButton();   // Если нет - прячем кнопку
 
+        buttonShowMore.textContent = `Показать ещё (${news.articles.length - head})`;
         results.showSection();      // Отображаем секцию с результатами
     }
     return render;
