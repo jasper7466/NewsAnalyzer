@@ -16,4 +16,11 @@
   background-color: #fff;
   text-decoration: none;
   cursor: url(../../images/cur-lapka.png), auto;
+  opacity: 1;
+  transition: opacity .1s ease-in;
+}
+
+.news-card:hover {
+  opacity: .5;
+  transition: opacity .1s ease-in;
 }
