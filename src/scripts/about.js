@@ -47,6 +47,9 @@ function renderPage(maxRender)
       // Создаём слайдер, указываем ссылку на узел слайдера коммитов
       const commitSlider = new Flickity('.commits__carousel', {
         groupCells: 1,
+        wrapAround: true,
+        autoPlay: 5000,
+        groupCells: '100%'
       });
       // Пришлось перенести его именно сюда, т.к. инициализация ломает вёрстку в случае,
       // когда карточки ещё не добавлены.
