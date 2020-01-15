@@ -10,4 +10,5 @@
 @import url(../blocks/commits/commits.css);
 @import url(../blocks/commit-card/commit-card.css);
 @import url(../blocks/common-styles/custom-cursor.css);
+@import url(../blocks/common-styles/custom-link.css);
 @import url(../../node_modules/flickity/css/flickity.css);

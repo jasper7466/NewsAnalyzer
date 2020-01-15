@@ -1,0 +1,9 @@
+.custom-link {
+    opacity: 1;
+    transition: opacity .1s ease-in;
+}
+
+.custom-link:hover {
+    opacity: .3;
+    transition: opacity .1s ease-in;
+}

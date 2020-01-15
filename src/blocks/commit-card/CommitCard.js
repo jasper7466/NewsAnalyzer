@@ -2,7 +2,7 @@
 import { BaseComponent } from '../../scripts/modules/BaseComponent';
 export class CommitCard extends BaseComponent
 {
-    _DESCRPTION_MAX_LENGTH = 200;    // Граница для урезки текста описания коммита
+    _DESCRPTION_MAX_LENGTH = 170;    // Граница для урезки текста описания коммита
 
     // Конструктор класса
     constructor(commit)

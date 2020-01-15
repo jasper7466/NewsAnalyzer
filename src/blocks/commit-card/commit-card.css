@@ -20,6 +20,13 @@
   box-sizing: border-box;
   border-radius: 16px;
   background-color: #fff;
+  opacity: 1;
+  transition: opacity .1s ease-in;
+}
+
+.commit-card:hover {
+  opacity: .5;
+  transition: opacity .1s ease-in;
 }
 
 @media screen and (max-width: 768px) {

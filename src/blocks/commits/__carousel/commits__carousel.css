@@ -39,4 +39,12 @@
   .commits__carousel .flickity-prev-next-button {
     display: none;
   }
+  
+  .commits__carousel .flickity-page-dots .dot {
+    height: 4px;
+    width: 4%;
+    margin: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
 }
