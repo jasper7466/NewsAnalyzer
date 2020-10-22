@@ -50,14 +50,15 @@
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "core-js": "3.4.1",
-    "flickity": "2.2.1"
+    "flickity": "2.2.1",
+    "jquery": "^3.5.1"
   },
   "babel": {
     "presets": [
       "@babel/preset-env"
     ],
     "plugins": [
-        "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties"
     ]
-}
+  }
 }
